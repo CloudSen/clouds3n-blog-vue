@@ -1,32 +1,49 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
+  <v-app dark>
     <router-view/>
-  </div>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+<style>
+* {
+  padding: 0;
+  margin: 0;
+  font-size: 14px/1.5;
+  font-family: "\5b8b\4f53", Arial, "WenQuanYi Micro Hei", "Microsoft Yahei",
+    "Hiragino Sans GB", "Heiti SC", sans-serif;
 }
 
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+/* 滚动条样式 start */
+body::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #000;
 }
+
+body::-webkit-scrollbar {
+  width: 5px;
+  background-color: #000;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #20c20e;
+  border: 2px solid #20c20e;
+}
+
+pre::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #000;
+}
+
+pre::-webkit-scrollbar {
+  height: 3px;
+  background-color: #000;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: #20c20e;
+  border: 1px solid #20c20e;
+}
+/* 滚动条样式 end */
 </style>
