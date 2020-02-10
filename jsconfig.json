@@ -1,14 +1,29 @@
-// Vetur插件的配置
+// 显式JS项目，表示该目录是JavaScript项目的根目录
 {
-    "include": [
-        "./src/**/*"
-    ],
-    "compilerOptions": {
-        "baseUrl": ".",
-        "paths": {
-            "@/components/*": [
-                "src/components/*"
-            ]
-        }
+  "include": [
+    "./src/**/*"
+  ],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": [
+        "src/components/*"
+      ],
+      "@/plugins/*": [
+        "src/plugins/*"
+      ],
+      "@/router/*": [
+        "src/router/*"
+      ],
+      "@/store/*": [
+        "src/store/*"
+      ],
+      "@/utils/*": [
+        "src/utils/*"
+      ],
+      "@/views/*": [
+        "src/views/*"
+      ],
     }
+  }
 }
