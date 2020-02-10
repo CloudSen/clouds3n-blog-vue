@@ -39,6 +39,7 @@ module.exports = {
       ts: 'never',
       tsx: 'never',
       vue: 'never'
-    }]
+    }],
+    'import/no-extraneous-dependencies': ['error', { 'devDependencies': true }]
   },
 };
