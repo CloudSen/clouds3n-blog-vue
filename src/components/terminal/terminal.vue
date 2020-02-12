@@ -19,6 +19,7 @@
             <v-system-bar
               :height="24"
               :lights-out="true"
+              class="hack-typing"
               color="orange"
             >
               <i class="material-icons">keyboard</i>
@@ -27,7 +28,7 @@
               <i class="material-icons">wifi</i>
               <i class="material-icons">signal_cellular_4_bar</i>
               <i class="material-icons">battery_full</i>
-              <span>12:30</span>
+              <span>{{this.currentTime}}</span>
             </v-system-bar>
             <v-card
               :height="this.getTerminalHeight"
@@ -65,6 +66,7 @@
             </v-card>
           </v-col>
         </v-row>
+        <ParticlesBackground :pageHeight="this.pageHeight"></ParticlesBackground>
       </v-container>
     </v-content>
   </fragment>
@@ -72,6 +74,8 @@
 
 <script>
 import getPageMaxHeight from '@/utils/windowSizeUtil'
+import getCurrentTime from '@/utils/dateTimeUtil'
+import ParticlesBackground from '@/components/terminal/ParticlesBackground'
 
 export default {
   name: 'terminal',
@@ -80,12 +84,17 @@ export default {
       type: Object,
     },
   },
+  components: {
+    ParticlesBackground,
+  },
   data: () => ({
     terminalData: {},
     pageHeight: 0,
     isCombinationMode: false,
     isNormalMode: true,
     userInput: [],
+    currentTime: getCurrentTime(),
+    timerId: null,
   }),
   methods: {
     init () {
@@ -113,6 +122,20 @@ export default {
         this.terminalData.noneMobileTerminalHeight = defaultData.noneMobileTerminalHeight
       }
       console.log(`terminal inited data: ${JSON.stringify(this.terminalData)}`)
+      this.setTimer()
+    },
+    setTimer () {
+      const thiss = this
+      console.debug('设置计时器')
+      this.timerId = setInterval(() => {
+        thiss.currentTime = getCurrentTime()
+      }, 1000)
+    },
+    unsetTimer () {
+      if (this.timerId) {
+        console.debug('注销计时器')
+        clearInterval(this.timerId)
+      }
     },
     onResize () {
       this.pageHeight = getPageMaxHeight()
@@ -248,6 +271,7 @@ export default {
   },
   mounted () {
     this.init()
+    this.onResize()
     this.userInput.length = 0
     this.pageHeight = getPageMaxHeight()
     // 添加按键监听
@@ -261,6 +285,8 @@ export default {
     console.debug('注销按键监听...')
     window.removeEventListener('keypress', this.onKeyPress)
     window.removeEventListener('keydown', this.onKeyDown)
+    // 移除计时器
+    this.unsetTimer()
   },
 }
 </script>
