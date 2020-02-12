@@ -78,7 +78,6 @@ export default {
   props: {
     data: {
       type: Object,
-      required: false,
     },
   },
   data: () => ({
@@ -90,7 +89,7 @@ export default {
   }),
   methods: {
     init () {
-      console.log(`terminal passing data: ${JSON.stringify(this.terminalData)}`)
+      console.log(`terminal passing data: ${JSON.stringify(this.data)}`)
       const defaultData = {
         supportedCombination: ['H'],
         supportedCommand: ['home', 'clear', 'info', 'screenfetch', 'cloudsen', 'exit'],
@@ -119,8 +118,7 @@ export default {
       this.pageHeight = getPageMaxHeight()
       console.debug(`current page height is: ${this.pageHeight}`)
       console.debug(`xs only? ${this.$vuetify.breakpoint.xsOnly}`)
-      console.debug(`card height: ${this.$vuetify.breakpoint.xsOnly
-        ? this.terminalData.mobileTerminalHeight : this.terminalData.noneMobileTerminalHeight}`)
+      console.debug(`terminal height: ${this.getTerminalHeight}`)
     },
     appendInput (keyCode) {
       this.userInput.push(String.fromCharCode(keyCode))
@@ -248,10 +246,8 @@ export default {
       return this.isNormalMode ? '普通模式' : '组合键模式'
     },
   },
-  created () {
-    this.init()
-  },
   mounted () {
+    this.init()
     this.userInput.length = 0
     this.pageHeight = getPageMaxHeight()
     // 添加按键监听
