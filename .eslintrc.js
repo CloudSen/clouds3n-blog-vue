@@ -21,6 +21,7 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    'max-len': ['error', { 'code': 200 }],
     // 必须使用单引号
     'quotes': ['error', 'single'],
     // 仅在必要的时候使用分号，以 [, (, /, +, - 开头的行
