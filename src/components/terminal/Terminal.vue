@@ -16,54 +16,60 @@
             sm="8"
             xl="4"
           >
-            <v-system-bar
-              :height="24"
-              :lights-out="true"
-              class="hack-typing"
-              color="orange"
-            >
-              <i class="material-icons">keyboard</i>
-              <span>{{this.getTerminalInputMod}}</span>
-              <v-spacer></v-spacer>
-              <i class="material-icons">wifi</i>
-              <i class="material-icons">signal_cellular_4_bar</i>
-              <i class="material-icons">battery_full</i>
-              <span>{{this.currentTime}}</span>
-            </v-system-bar>
-            <v-card
-              :height="this.getTerminalHeight"
-              class="hack-typing black"
-              dark
-            >
-              <v-card-text class="grey--text text--lighten-3 text-xs-left">
-                <p class="red--text font-weight-blod">FBI WARNING</p>
-                <p>Hello, and, again,</p>
-                <p>
-                  I am
-                  <span class="smile">CloudS3n.</span>
-                </p>
-                <p>Starting fucking awesome AI system...</p>
-                <p>
-                  <span class="system-success-info">[ OK ]</span> Checking filesystems
-                </p>
-                <p>
-                  <span class="system-success-info">[ OK ]</span> Mounting devices
-                </p>
-                <p>
-                  <span class="system-success-info">[ OK ]</span> Auto login
-                </p>
-                <p>
-                  > Good Luck, Have fun
-                  <span class="smile">:)</span>
-                </p>
-                <p>input "home" go to home page.</p>
-                <p>Arch Linux (tty1).</p>
-                <p>
-                  <span class="user-info">[ visitor@GLaDOS ~ ]$&nbsp;&nbsp;</span>
-                  <span class="user-input">{{ getUserInput }}</span>
-                </p>
-              </v-card-text>
-            </v-card>
+            <v-scroll-y-transition>
+              <v-system-bar
+                :height="24"
+                :lights-out="true"
+                class="hack-typing"
+                color="orange"
+                v-show="show"
+              >
+                <i class="material-icons">keyboard</i>
+                <span>{{this.getTerminalInputMod}}</span>
+                <v-spacer></v-spacer>
+                <i class="material-icons">wifi</i>
+                <i class="material-icons">signal_cellular_4_bar</i>
+                <i class="material-icons">battery_full</i>
+                <span>{{this.currentTime}}</span>
+              </v-system-bar>
+            </v-scroll-y-transition>
+            <v-scroll-y-transition>
+              <v-card
+                :height="this.getTerminalHeight"
+                class="hack-typing black"
+                dark
+                v-show="show"
+              >
+                <v-card-text class="grey--text text--lighten-3 text-xs-left">
+                  <p class="red--text font-weight-blod">FBI WARNING</p>
+                  <p>Hello, and, again,</p>
+                  <p>
+                    I am
+                    <span class="smile">CloudS3n.</span>
+                  </p>
+                  <p>Starting fucking awesome AI system...</p>
+                  <p>
+                    <span class="system-success-info">[ OK ]</span> Checking filesystems
+                  </p>
+                  <p>
+                    <span class="system-success-info">[ OK ]</span> Mounting devices
+                  </p>
+                  <p>
+                    <span class="system-success-info">[ OK ]</span> Auto login
+                  </p>
+                  <p>
+                    > Good Luck, Have fun
+                    <span class="smile">:)</span>
+                  </p>
+                  <p>input "home" go to home page.</p>
+                  <p>Arch Linux (tty1).</p>
+                  <p>
+                    <span class="user-info">[ visitor@GLaDOS ~ ]$&nbsp;&nbsp;</span>
+                    <span class="user-input">{{ getUserInput }}</span>
+                  </p>
+                </v-card-text>
+              </v-card>
+            </v-scroll-y-transition>
           </v-col>
         </v-row>
         <ParticlesBackground :pageHeight="this.pageHeight"></ParticlesBackground>
@@ -95,6 +101,7 @@ export default {
     userInput: [],
     currentTime: getCurrentTime(),
     timerId: null,
+    show: false,
   }),
   methods: {
     init () {
@@ -123,6 +130,7 @@ export default {
       }
       console.log(`terminal inited data: ${JSON.stringify(this.terminalData)}`)
       this.setTimer()
+      this.show = true
     },
     setTimer () {
       const thiss = this
