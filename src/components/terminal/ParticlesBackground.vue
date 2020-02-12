@@ -17,6 +17,7 @@ export default {
     },
   },
   data: () => ({
+    timerId: 0,
   }),
   methods: {
     initParticles () {
@@ -43,11 +44,6 @@ export default {
               polygon: {
                 nb_sides: 6,
               },
-              image: {
-                src: 'img/github.svg',
-                width: 100,
-                height: 100,
-              },
             },
             opacity: {
               value: 0.31565905665290905,
@@ -60,7 +56,7 @@ export default {
               },
             },
             size: {
-              value: 160,
+              value: 100,
               random: false,
               anim: {
                 enable: true,
@@ -143,7 +139,10 @@ export default {
   },
   mounted () {
     console.debug('Inital particles js')
-    setTimeout(this.initParticles, 1000)
+    this.timerId = setTimeout(this.initParticles, 1000)
+  },
+  beforeDestroy () {
+    clearTimeout(this.timerId)
   },
 }
 </script>
