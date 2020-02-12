@@ -139,7 +139,7 @@ export default {
   },
   mounted () {
     console.debug('Inital particles js')
-    this.timerId = setTimeout(this.initParticles, 1000)
+    this.timerId = setTimeout(this.initParticles, 100)
   },
   beforeDestroy () {
     clearTimeout(this.timerId)
