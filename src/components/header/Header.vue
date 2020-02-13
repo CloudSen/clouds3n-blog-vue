@@ -1,6 +1,6 @@
 <template>
   <v-app-bar
-    absolute
+    app
     color="#6A76AB"
     dark
     fade-img-on-scroll
