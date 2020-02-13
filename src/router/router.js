@@ -33,6 +33,12 @@ const routes = [
       },
     ],
   },
+  {
+    path: '*',
+    name: 'not_found_404',
+    title: 'not_found_404',
+    redirect: '/',
+  },
 ]
 
 const router = new VueRouter({
