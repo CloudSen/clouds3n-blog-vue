@@ -31,6 +31,12 @@ const routes = [
         name: 'blog',
         title: '个人博客',
       },
+      {
+        path: 'about',
+        name: 'about',
+        title: '关于',
+        component: () => import('@/views/About'),
+      },
     ],
   },
   {
