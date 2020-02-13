@@ -1,9 +1,6 @@
 <template>
   <fragment>
-    <v-list
-      class="grey--text text-lighten-5"
-      subheader
-    >
+    <v-list subheader>
       <!-- 分组读取菜单 -->
       <GroupMenu :drawerData="this.drawerData"></GroupMenu>
     </v-list>

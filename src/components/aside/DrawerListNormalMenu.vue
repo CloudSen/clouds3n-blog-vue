@@ -4,15 +4,15 @@
       <v-list-item
         :key="menu.id"
         :to="menu.routerPath"
-        active-class="indigo--text text-darken-4"
+        active-class="indigo--text text--darken-4"
         exact
         v-if="menu.type === 2"
       >
         <v-list-item-icon>
-          <i class="material-icons">{{ menu.icon }}</i>
+          <i class="material-icons grey--text text--darken-3">{{ menu.icon }}</i>
         </v-list-item-icon>
 
-        <v-list-item-title>{{ menu.name }}</v-list-item-title>
+        <v-list-item-title class="grey--text text--darken-3 font-weight-medium">{{ menu.name }}</v-list-item-title>
       </v-list-item>
     </template>
   </fragment>
