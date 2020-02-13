@@ -3,7 +3,7 @@
     app
     floating
     temporary
-    v-model="this.showDrawer"
+    v-model="showDrawer"
     width="250"
   >
     <DrawerHeader></DrawerHeader>
@@ -15,6 +15,7 @@
 import drawerItemsData from '@/testData/drawerData'
 import DrawerHeader from '@/components/aside/DrawerHeader'
 import DrawerList from '@/components/aside/DrawerList'
+import UPDATE_DRAWER_SHOW from '@/components/aside/constants/mutationType'
 
 export default {
   name: 'navigation-drawer',
@@ -23,7 +24,6 @@ export default {
     DrawerList,
   },
   data: () => ({
-    showDrawer: true,
     drawerData: [],
   }),
   computed: {
@@ -47,6 +47,14 @@ export default {
       }
       const groupList = parse(this.drawerData, '-1')
       return groupList
+    },
+    showDrawer: {
+      get () {
+        return this.$store.state.navDrawer.show
+      },
+      set (value) {
+        this.$store.commit(`navDrawer/${UPDATE_DRAWER_SHOW}`, value)
+      },
     },
   },
   methods: {

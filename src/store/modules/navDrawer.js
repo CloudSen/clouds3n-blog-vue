@@ -1,3 +1,6 @@
+import TRIGGER_DRAWER from '@/components/header/constants/mutationType'
+import UPDATE_DRAWER_SHOW from '@/components/aside/constants/mutationType'
+
 const state = {
   show: false,
 }
@@ -7,13 +10,15 @@ const getters = {}
 const actions = {}
 
 const mutations = {
-  triggerDrawer ($state) {
-    const localState = $state
-    localState.show = true
+  [TRIGGER_DRAWER] ($state) {
+    const STATE = $state
+    STATE.show = true
+    console.debug(`是否显示侧边导航栏：${STATE.show}`)
   },
-  updateDrawerShow ($state, value) {
-    const localState = $state
-    localState.show = value
+  [UPDATE_DRAWER_SHOW] ($state, value) {
+    const STATE = $state
+    STATE.show = value
+    console.debug(`是否显示侧边导航栏：${STATE.show}`)
   },
 }
 

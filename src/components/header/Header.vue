@@ -16,7 +16,7 @@
       ></v-img>
     </template>
 
-    <v-app-bar-nav-icon></v-app-bar-nav-icon>
+    <v-app-bar-nav-icon @click.stop="triggerDrawer"></v-app-bar-nav-icon>
 
     <v-toolbar-title>Computerize</v-toolbar-title>
 
@@ -27,8 +27,10 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
 import HeaderItems from '@/components/header/HeaderItems'
 import headerData from '@/testData/headerData'
+import TRIGGER_DRAWER from './constants/mutationType'
 
 export default {
   name: 'top-header',
@@ -42,6 +44,7 @@ export default {
     init () {
       this.items = headerData
     },
+    ...mapMutations('navDrawer/', [TRIGGER_DRAWER]),
   },
   mounted () {
     this.init()
