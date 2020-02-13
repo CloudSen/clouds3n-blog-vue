@@ -167,7 +167,7 @@ export default {
           case 'cloudsen':
             break
           case 'home':
-            this.$router.push('/home')
+            this.$router.push({ name: 'home' })
             break
           case 'exit':
             break
@@ -200,7 +200,7 @@ export default {
         console.debug(`支持的组合键: Ctrl + ${key}`)
         this.changeToNormalMode()
         if (this.terminalData.supportedCombination[index] === 'H') {
-          this.$router.push('/home')
+          this.$router.push({ name: 'home' })
         }
       }
     },
