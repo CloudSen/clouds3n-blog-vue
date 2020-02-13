@@ -18,7 +18,14 @@ const routes = [
     name: 'home',
     title: 'home',
     component: Home,
+    redirect: '/home/motto',
     children: [
+      {
+        path: 'motto',
+        name: 'motto',
+        title: '格言',
+        component: () => import('@/views/Motto'),
+      },
       {
         path: 'blog',
         name: 'blog',
