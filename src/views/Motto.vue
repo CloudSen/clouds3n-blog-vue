@@ -11,12 +11,14 @@
         :key="`${data.id}-transition`"
       ></TransitionDiv>
     </template>
+    <RightSideScrollButton></RightSideScrollButton>
   </fragment>
 </template>
 
 <script>
 import ParallaxyDiv from '@/components/main/motto/ParallaxyDiv'
 import TransitionDiv from '@/components/main/motto/TransitionDiv'
+import RightSideScrollButton from '@/components/main/floatingButton/RightSideScrollButton'
 import mottoData from '@/testData/mottoData'
 
 export default {
@@ -24,6 +26,7 @@ export default {
   components: {
     ParallaxyDiv,
     TransitionDiv,
+    RightSideScrollButton,
   },
   data () {
     return {
