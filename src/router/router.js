@@ -30,6 +30,16 @@ const routes = [
         path: 'blog',
         name: 'blog',
         title: '个人博客',
+        redirect: '/home/blog/articles',
+        component: () => import('@/views/Blog'),
+        children: [
+          {
+            path: 'articles',
+            name: 'articles',
+            title: '文章列表',
+            component: () => import('@/views/Articles'),
+          },
+        ],
       },
       {
         path: 'about',
