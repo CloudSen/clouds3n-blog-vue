@@ -9,3 +9,28 @@ export default function getPageMaxHeight () {
     html.offsetHeight,
   )
 }
+
+export function getBodyScrollHeight () {
+  const { body } = document
+  return body.scrollHeight
+}
+
+export function getBodyOffsetHeight () {
+  const { body } = document
+  return body.offsetHeight
+}
+
+export function getHtmlClientHeight () {
+  const html = document.documentElement
+  return html.clientHeight
+}
+
+export function getHtmlScrollHeight () {
+  const html = document.documentElement
+  return html.scrollHeight
+}
+
+export function getHtmlOffsetHeight () {
+  const html = document.documentElement
+  return html.offsetHeight
+}
