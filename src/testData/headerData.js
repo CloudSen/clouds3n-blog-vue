@@ -9,7 +9,7 @@ export default [
   {
     id: 2,
     name: '个人博客',
-    routerPath: '/home/blog/articles',
+    routerPath: '/home/blog',
     icon: 'book',
     order: 2,
   },
