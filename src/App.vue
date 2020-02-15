@@ -1,6 +1,6 @@
 <template>
   <v-app dark>
-    <router-view/>
+    <router-view />
   </v-app>
 </template>
 
@@ -11,6 +11,10 @@
   font-size: 14px/1.5;
   font-family: "\5b8b\4f53", Arial, "WenQuanYi Micro Hei", "Microsoft Yahei",
     "Hiragino Sans GB", "Heiti SC", sans-serif;
+}
+
+.hackFont {
+  font: 14px/1.5 Hack, Consolas, Monaco, Menlo !important;
 }
 
 /* 滚动条样式 start */
