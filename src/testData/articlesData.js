@@ -1,7 +1,7 @@
 export default {
   records: [
     {
-      id: '1',
+      uuid: '1',
       title: 'Test1',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf ',
       imgUrlMd: 'https://s1.ax1x.com/2018/12/20/FD6b60.md.png',
@@ -9,17 +9,17 @@ export default {
       readCount: 49,
       tags: [
         {
-          id: '1',
+          uuid: '1',
           name: 'JavaScript',
           color: 'amber lighten-2',
         },
         {
-          id: '3',
+          uuid: '3',
           name: 'ES6',
           color: 'amber darken-2',
         },
         {
-          id: '4',
+          uuid: '4',
           name: 'golang',
           color: 'green darken-2',
         },
@@ -28,7 +28,7 @@ export default {
       updateTime: '2019-07-29',
     },
     {
-      id: '2',
+      uuid: '2',
       title: 'Test2',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf 2',
       imgUrlMd: 'https://s1.ax1x.com/2018/11/28/FVus3R.md.png',
@@ -36,7 +36,7 @@ export default {
       readCount: 23,
       tags: [
         {
-          id: '2',
+          uuid: '2',
           name: 'java',
           color: 'blue lighten-1',
         },
@@ -45,7 +45,7 @@ export default {
       updateTime: '2019-07-29',
     },
     {
-      id: '3',
+      uuid: '3',
       title: 'Test3',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf 3',
       imgUrlMd: 'https://s1.ax1x.com/2018/12/20/FD6b60.md.png',
@@ -53,7 +53,7 @@ export default {
       readCount: 49,
       tags: [
         {
-          id: '1',
+          uuid: '1',
           name: 'JavaScript',
           color: 'amber lighten-2',
         },
@@ -62,7 +62,7 @@ export default {
       updateTime: '2019-07-29',
     },
     {
-      id: '4',
+      uuid: '4',
       title: 'Test4',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf 4',
       imgUrlMd: 'https://s1.ax1x.com/2018/11/28/FVus3R.md.png',
@@ -70,7 +70,7 @@ export default {
       readCount: 23,
       tags: [
         {
-          id: '2',
+          uuid: '2',
           name: 'java',
           color: 'blue lighten-1',
         },
@@ -79,7 +79,7 @@ export default {
       updateTime: '2019-07-29',
     },
     {
-      id: '5',
+      uuid: '5',
       title: 'Test5',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf 5',
       imgUrlMd: 'https://s1.ax1x.com/2018/12/20/FD6b60.md.png',
@@ -87,7 +87,7 @@ export default {
       readCount: 49,
       tags: [
         {
-          id: '1',
+          uuid: '1',
           name: 'JavaScript',
           color: 'amber lighten-2',
         },
@@ -96,7 +96,7 @@ export default {
       updateTime: '2019-07-29',
     },
     {
-      id: '6',
+      uuid: '6',
       title: 'Test6',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf 6',
       imgUrlMd: 'https://s1.ax1x.com/2018/11/28/FVus3R.md.png',
@@ -104,7 +104,7 @@ export default {
       readCount: 23,
       tags: [
         {
-          id: '2',
+          uuid: '2',
           name: 'java',
           color: 'blue lighten-1',
         },
@@ -113,7 +113,7 @@ export default {
       updateTime: '2019-07-29',
     },
     {
-      id: '7',
+      uuid: '7',
       title: 'Test7',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf 7',
       imgUrlMd: 'https://s1.ax1x.com/2018/12/20/FD6b60.md.png',
@@ -121,7 +121,7 @@ export default {
       readCount: 49,
       tags: [
         {
-          id: '1',
+          uuid: '1',
           name: 'JavaScript',
           color: 'amber lighten-2',
         },
@@ -130,7 +130,7 @@ export default {
       updateTime: '2019-07-29',
     },
     {
-      id: '8',
+      uuid: '8',
       title: 'Test8',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf 8',
       imgUrlMd: 'https://s1.ax1x.com/2018/11/28/FVus3R.md.png',
@@ -138,7 +138,7 @@ export default {
       readCount: 23,
       tags: [
         {
-          id: '2',
+          uuid: '2',
           name: 'java',
           color: 'blue lighten-1',
         },
@@ -147,7 +147,7 @@ export default {
       updateTime: '2019-07-29',
     },
     {
-      id: '9',
+      uuid: '9',
       title: 'Test9',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf 9',
       imgUrlMd: 'https://s1.ax1x.com/2018/11/28/FVus3R.md.png',
@@ -155,7 +155,7 @@ export default {
       readCount: 23,
       tags: [
         {
-          id: '2',
+          uuid: '2',
           name: 'java',
           color: 'blue lighten-1',
         },
@@ -164,7 +164,7 @@ export default {
       updateTime: '2019-07-29',
     },
     {
-      id: '10',
+      uuid: '10',
       title: 'Test10',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf 10',
       imgUrlMd: 'https://s1.ax1x.com/2018/11/28/FVus3R.md.png',
@@ -172,7 +172,7 @@ export default {
       readCount: 23,
       tags: [
         {
-          id: '2',
+          uuid: '2',
           name: 'java',
           color: 'blue lighten-1',
         },
