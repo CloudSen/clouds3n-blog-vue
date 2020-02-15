@@ -3,8 +3,8 @@
     <template v-for="(tag, index) in tags">
       <v-btn
         :color="tag.color"
-        :key="`${tag.id}-${index}`"
-        @click.stop
+        :key="`${tag.uuid}-${index}`"
+        @click.native.stop="onClick(tag.uuid)"
         ripple
       >
         <i
@@ -24,6 +24,11 @@ export default {
     tags: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    onClick (uuid) {
+      console.debug(`点击了标签${uuid}`)
     },
   },
 }
