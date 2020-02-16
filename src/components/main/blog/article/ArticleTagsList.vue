@@ -5,6 +5,7 @@
         :color="tag.color"
         :key="`${tag.uuid}-${index}`"
         @click.native.stop="onClick(tag.uuid)"
+        class="mx-1 my-1"
         ripple
         small
       >
