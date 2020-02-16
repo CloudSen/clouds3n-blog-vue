@@ -23,6 +23,7 @@
         <v-card-text
           :class="card.summaryTextColor ? card.summaryTextColor : `black--text`"
           class="hackFont"
+          v-if="card.summary"
         >{{card.summary}}</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
@@ -39,7 +40,10 @@
             >
               <ArticleTagsList :tags="card.tags"></ArticleTagsList>
             </v-row>
-            <v-row justify="end">
+            <v-row
+              justify="end"
+              v-if="card.updateTime"
+            >
               <v-col class="text-right">
                 <v-btn
                   :class="card.summaryTextColor ? card.summaryTextColor : `black--text`"

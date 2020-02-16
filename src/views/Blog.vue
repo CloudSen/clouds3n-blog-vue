@@ -4,8 +4,8 @@
       <v-row dense>
         <v-col
           cols="12"
-          lg="4"
-          md="4"
+          lg="2"
+          md="3"
           order="2"
           xl="2"
         >
@@ -14,8 +14,8 @@
         </v-col>
         <v-col
           cols="12"
-          lg="8"
-          md="8"
+          lg="10"
+          md="9"
           order="3"
           order-md="1"
           xl="10"
