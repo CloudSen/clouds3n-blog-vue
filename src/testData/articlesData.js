@@ -4,9 +4,10 @@ export default {
       uuid: '1',
       title: 'Test1',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf ',
-      imgUrlMd: 'https://s1.ax1x.com/2018/12/20/FD6b60.md.png',
       commentCount: 5,
       readCount: 49,
+      color: 'light-green darken-1 white--text',
+      textColor: 'white--text',
       tags: [
         {
           uuid: '1',

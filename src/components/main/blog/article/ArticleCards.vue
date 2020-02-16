@@ -3,6 +3,7 @@
     <v-hover>
       <v-card
         :class="`elevation-${hover ? 24 : 2}`"
+        :color="card.color ? card.color : white"
         :to="`/home/blog/articles/${card.uuid}`"
         exact
         raised
@@ -12,13 +13,17 @@
         <v-img
           :aspect-ratio="16/9"
           :src="card.imgUrlMd"
+          v-if="card.imgUrlMd"
         ></v-img>
         <v-card-title>
           <div>
             <span class="title">{{card.title}}</span>
           </div>
         </v-card-title>
-        <v-card-text class="hackFont">{{card.summary}}</v-card-text>
+        <v-card-text
+          :class="card.textColor ? card.textColor : black"
+          class="hackFont"
+        >{{card.summary}}</v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
           <v-container
@@ -36,7 +41,7 @@
             <v-row justify="end">
               <v-col class="text-right">
                 <v-btn
-                  class="grey--text"
+                  :class="card.textColor ? card.textColor : black"
                   text
                 >
                   <v-icon left>access_time</v-icon>
