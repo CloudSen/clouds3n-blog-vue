@@ -1,4 +1,11 @@
 const state = {
+  myInfo: {
+    avatar: {
+      class: 'white--text align-end',
+      src: 'https://s2.ax1x.com/2020/02/16/3pu9YD.jpg',
+      title: 'CloudS3n',
+    },
+  },
   articleListPage: {
     size: 12,
     current: 1,
