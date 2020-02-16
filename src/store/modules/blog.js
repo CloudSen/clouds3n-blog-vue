@@ -7,7 +7,7 @@ const state = {
     },
   },
   articleListPage: {
-    size: 12,
+    size: 9,
     current: 1,
     total: 0,
     pages: 0,
@@ -33,7 +33,7 @@ const mutations = {
   resetArticleListPage ($state) {
     const STATE = $state
     STATE.articleListPage = {
-      size: 12,
+      size: 9,
       current: 1,
       total: 0,
       pages: 0,
