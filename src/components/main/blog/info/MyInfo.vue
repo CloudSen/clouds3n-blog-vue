@@ -9,9 +9,24 @@
               color="light-blue darken-2"
               dark
               fab
+              href="https://github.com/CloudSen"
+              link
               small
             >
-              <v-icon dark>mdi-android</v-icon>
+              <v-img src="https://s2.ax1x.com/2020/02/16/3pbK39.png"></v-img>
+            </v-btn>
+            <v-btn
+              color="light-blue darken-2"
+              dark
+              fab
+              link
+              small
+            >
+              <v-img
+                height="40"
+                src="https://s2.ax1x.com/2020/02/16/3pqF8H.png"
+                width="40"
+              ></v-img>
             </v-btn>
           </v-card-actions>
         </v-card>
