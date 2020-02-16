@@ -7,15 +7,18 @@
           lg="4"
           md="4"
           order="2"
-          xl="4"
-        ></v-col>
+          xl="2"
+        >
+          <TagList></TagList>
+          <MyInfo></MyInfo>
+        </v-col>
         <v-col
           cols="12"
           lg="8"
           md="8"
           order="3"
           order-md="1"
-          xl="8"
+          xl="10"
         >
           <router-view></router-view>
         </v-col>
@@ -25,8 +28,15 @@
 </template>
 
 <script>
+import TagList from '@/components/main/blog/tag/TagList'
+import MyInfo from '@/components/main/blog/info/MyInfo'
+
 export default {
   name: 'blog',
+  components: {
+    TagList,
+    MyInfo,
+  },
 }
 </script>
 
