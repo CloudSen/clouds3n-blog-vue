@@ -20,6 +20,7 @@ import ParallaxyDiv from '@/components/main/motto/ParallaxyDiv'
 import TransitionDiv from '@/components/main/motto/TransitionDiv'
 import RightSideScrollButton from '@/components/common/btn/floatingButton/RightSideScrollButton'
 import mottoData from '@/testData/mottoData'
+import { goToTop } from '@/utils/windowSizeUtil'
 
 export default {
   name: 'motto',
@@ -33,6 +34,9 @@ export default {
       isMobile: false,
       dataList: this.sortedDataList(mottoData),
     }
+  },
+  mounted () {
+    goToTop(this.$vuetify)
   },
   methods: {
     onResize () {
