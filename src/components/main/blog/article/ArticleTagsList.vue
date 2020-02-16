@@ -6,6 +6,7 @@
         :key="`${tag.uuid}-${index}`"
         @click.native.stop="onClick(tag.uuid)"
         ripple
+        small
       >
         <i
           class="material-icons"
