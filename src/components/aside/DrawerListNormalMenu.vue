@@ -5,7 +5,6 @@
         :key="menu.id"
         :to="menu.routerPath"
         active-class="indigo--text text--darken-4"
-        exact
         v-if="menu.type === 2"
       >
         <v-list-item-icon>
