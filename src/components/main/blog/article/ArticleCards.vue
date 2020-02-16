@@ -3,7 +3,7 @@
     <v-hover>
       <v-card
         :class="`elevation-${hover ? 24 : 2}`"
-        :color="card.color ? card.color : white"
+        :color="card.color ? card.color : `white`"
         :disabled="card.disabled"
         :to="`/home/blog/articles/${card.uuid}`"
         exact
@@ -22,7 +22,7 @@
           </div>
         </v-card-title>
         <v-card-text
-          :class="card.summaryTextColor ? card.summaryTextColor : black"
+          :class="card.summaryTextColor ? card.summaryTextColor : `black--text`"
           class="hackFont"
         >{{card.summary}}</v-card-text>
         <v-card-actions>
@@ -36,13 +36,14 @@
             <v-row
               justify="end"
               no-gutters
+              v-if="card.tags"
             >
               <ArticleTagsList :tags="card.tags"></ArticleTagsList>
             </v-row>
             <v-row justify="end">
               <v-col class="text-right">
                 <v-btn
-                  :class="card.summaryTextColor ? card.summaryTextColor : black"
+                  :class="card.summaryTextColor ? card.summaryTextColor : `black--text`"
                   text
                 >
                   <v-icon left>access_time</v-icon>
