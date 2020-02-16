@@ -27,7 +27,7 @@ export default {
   name: 'article-list',
   components: { ArticleCards },
   computed: {
-    ...mapState('blogArticle/', ['articleListCards']),
+    ...mapState('blog/', ['articleListCards']),
   },
 }
 </script>

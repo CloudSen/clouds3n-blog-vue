@@ -21,7 +21,7 @@ export default {
     RightSideScrollButton,
   },
   methods: {
-    ...mapMutations('blogArticle/', [
+    ...mapMutations('blog/', [
       'updateArticleListPage',
       'updateArticleListCards',
       'resetArticleListPage',

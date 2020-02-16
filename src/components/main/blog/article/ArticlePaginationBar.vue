@@ -30,12 +30,12 @@ import articleOnePageData from '@/testData/articleOnePageData'
 export default {
   name: 'article-pagination-bar',
   computed: {
-    ...mapState('blogArticle/', [
+    ...mapState('blog/', [
       'articleListPage',
     ]),
   },
   methods: {
-    ...mapMutations('blogArticle/', [
+    ...mapMutations('blog/', [
       'updateArticleListCards',
       'updateArticleListPage',
     ]),
