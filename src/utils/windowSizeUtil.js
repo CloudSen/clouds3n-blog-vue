@@ -34,3 +34,7 @@ export function getHtmlOffsetHeight () {
   const html = document.documentElement
   return html.offsetHeight
 }
+
+export function goToTop (vuetify) {
+  vuetify.goTo(0)
+}
