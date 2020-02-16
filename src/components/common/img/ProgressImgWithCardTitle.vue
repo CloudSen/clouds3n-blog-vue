@@ -1,10 +1,13 @@
 <template>
   <fragment>
     <v-img
-      :aspect-ratio="imgInfo.aspectRatio"
+      :class="imgInfo.class"
       :src="imgInfo.src"
-      lazy-src="../../assets/lazy_loading.png"
+      aspect-ratio="16/9"
+      height="250px"
+      lazy-src="../../../assets/lazy_loading.png"
     >
+      <v-card-title>{{imgInfo.title}}</v-card-title>
       <template v-slot:placeholder>
         <v-row
           align="center"
@@ -23,7 +26,7 @@
 
 <script>
 export default {
-  name: 'progress-img',
+  name: 'progress-img-card-title',
   props: {
     imgInfo: {
       type: Object,

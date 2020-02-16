@@ -18,7 +18,7 @@
 <script>
 import ParallaxyDiv from '@/components/main/motto/ParallaxyDiv'
 import TransitionDiv from '@/components/main/motto/TransitionDiv'
-import RightSideScrollButton from '@/components/main/floatingButton/RightSideScrollButton'
+import RightSideScrollButton from '@/components/common/btn/floatingButton/RightSideScrollButton'
 import mottoData from '@/testData/mottoData'
 
 export default {

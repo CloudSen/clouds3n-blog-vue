@@ -11,7 +11,7 @@ import { mapMutations } from 'vuex'
 import articlesData from '@/testData/articlesData'
 import ArticleList from '@/components/main/blog/article/ArticleList'
 import ArticlePaginationBar from '@/components/main/blog/article/ArticlePaginationBar'
-import RightSideScrollButton from '@/components/main/floatingButton/RightSideScrollButton'
+import RightSideScrollButton from '@/components/common/btn/floatingButton/RightSideScrollButton'
 
 export default {
   name: 'blog-article',
