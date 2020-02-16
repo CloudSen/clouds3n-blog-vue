@@ -202,28 +202,30 @@ export default {
         if (this.terminalData.supportedCombination[index] === 'H') {
           this.$router.push({ name: 'home' })
         }
+        if (this.terminalData.supportedCombination[index] === 'L') {
+          this.clearInput()
+        }
       }
     },
     changeToCombinationMode () {
       console.debug('进入组合键模式')
       this.isNormalMode = false
       this.isCombinationMode = true
-      this.clearInput()
     },
     changeToNormalMode () {
       console.debug('进入普通输入模式')
       this.isNormalMode = true
       this.isCombinationMode = false
-      this.clearInput()
     },
     onKeyPress (e) {
       console.debug(`keypress code: ${e.keyCode}`)
       const isNumber = e.keyCode >= 48 && e.keyCode <= 57
       const isWord = (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)
       const isCommaOrDot = (e.keyCode === 44 || e.keyCode === 46)
+      const isSpace = e.keyCode === 32
       if (this.isNormalMode) {
         switch (true) {
-          case (isNumber || isWord || isCommaOrDot):
+          case (isNumber || isWord || isCommaOrDot || isSpace):
             this.appendInput(e.keyCode)
             break
           default:
@@ -288,7 +290,7 @@ export default {
     window.addEventListener('keydown', this.onKeyDown)
   },
   beforeDestroy () {
-    this.userInput.length = 0
+    this.clearInput()
     // 移除按键监听
     console.debug('注销按键监听...')
     window.removeEventListener('keypress', this.onKeyPress)
@@ -303,7 +305,7 @@ export default {
 .hack-typing {
   z-index: 10;
   overflow-y: auto;
-  overflow-x: hidden;
+  overflow-x: auto;
 }
 
 .hack-typing p {
