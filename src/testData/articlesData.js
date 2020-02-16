@@ -4,11 +4,20 @@ export default {
       uuid: '1',
       title: 'Test1',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf ',
-      commentCount: 5,
-      readCount: 49,
-      color: 'light-green darken-1 white--text',
-      summaryTextColor: 'white--text',
+      imgUrlMd: 'https://s1.ax1x.com/2018/11/28/FVus3R.md.png',
       disabled: true,
+      tags: [
+        {
+          uuid: '3',
+          name: 'ES6',
+          color: 'amber darken-2',
+        },
+        {
+          uuid: '4',
+          name: 'golang',
+          color: 'green darken-2',
+        },
+      ],
       createTime: '2019-07-29',
       updateTime: '2019-07-29',
     },
@@ -17,8 +26,6 @@ export default {
       title: 'Test2',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf 2',
       imgUrlMd: 'https://s1.ax1x.com/2018/11/28/FVus3R.md.png',
-      commentCount: 2,
-      readCount: 23,
       tags: [
         {
           uuid: '1',
@@ -62,9 +69,11 @@ export default {
       uuid: '4',
       title: 'Test4',
       summary: 'test summary sadfa ldfjaljof alkeflaj aslfj ljsdlf 4',
-      imgUrlMd: 'https://s1.ax1x.com/2018/11/28/FVus3R.md.png',
-      commentCount: 2,
-      readCount: 23,
+      imgUrlMd: 'https://s1.ax1x.com/2018/12/20/FD6b60.md.png',
+      commentCount: 5,
+      readCount: 49,
+      color: 'green darken-3 white--text',
+      summaryTextColor: 'yellow--text text-lighten-1',
       tags: [
         {
           uuid: '2',
@@ -72,8 +81,6 @@ export default {
           color: 'blue lighten-1',
         },
       ],
-      createTime: '2019-07-29',
-      updateTime: '2019-07-29',
     },
     {
       uuid: '5',
