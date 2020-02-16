@@ -22,7 +22,7 @@
 
 <script>
 import { mapState } from 'vuex'
-import ProgressImgWithCardTitle from '@/components/common/ProgressImgWithCardTitle'
+import ProgressImgWithCardTitle from '@/components/common/img/ProgressImgWithCardTitle'
 
 export default {
   name: 'my-info',

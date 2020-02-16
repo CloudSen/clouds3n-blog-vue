@@ -5,10 +5,7 @@
       tile
       v-if="this.imgUrl"
     >
-      <v-img
-        :aspect-ratio="16/9"
-        :src="this.imgUrl"
-      ></v-img>
+      <ProgressImg :imgInfo="{src:this.imgUrl, aspectRatio: 16/9}"></ProgressImg>
     </v-card>
     <v-card
       ripple
@@ -25,6 +22,8 @@
 </template>
 
 <script>
+import ProgressImg from '@/components/common/img/ProgressImg'
+
 export default {
   name: 'article-header',
   props: {
@@ -36,6 +35,9 @@ export default {
       type: Boolean,
       required: false,
     },
+  },
+  components: {
+    ProgressImg,
   },
 }
 </script>

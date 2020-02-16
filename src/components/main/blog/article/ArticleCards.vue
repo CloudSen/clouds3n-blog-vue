@@ -11,11 +11,10 @@
         ripple
         slot-scope="{ hover }"
       >
-        <v-img
-          :aspect-ratio="16/9"
-          :src="card.imgUrlMd"
+        <ProgressImg
+          :imgInfo="{src: card.imgUrlMd, aspectRatio: 16/9}"
           v-if="card.imgUrlMd"
-        ></v-img>
+        ></ProgressImg>
         <v-card-title>
           <div>
             <span class="title">{{card.title}}</span>
@@ -60,6 +59,7 @@
 
 <script>
 import ArticleTagsList from '@/components/main/blog/article/ArticleTagsList'
+import ProgressImg from '@/components/common/img/ProgressImg'
 
 export default {
   name: 'article-cards',
@@ -69,7 +69,7 @@ export default {
       required: true,
     },
   },
-  components: { ArticleTagsList },
+  components: { ArticleTagsList, ProgressImg },
 }
 </script>
 
