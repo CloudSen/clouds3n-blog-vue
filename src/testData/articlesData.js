@@ -7,7 +7,8 @@ export default {
       commentCount: 5,
       readCount: 49,
       color: 'light-green darken-1 white--text',
-      textColor: 'white--text',
+      summaryTextColor: 'white--text',
+      disabled: true,
       tags: [
         {
           uuid: '1',
@@ -52,6 +53,8 @@ export default {
       imgUrlMd: 'https://s1.ax1x.com/2018/12/20/FD6b60.md.png',
       commentCount: 5,
       readCount: 49,
+      color: 'brown darken-1 white--text',
+      summaryTextColor: 'grey--text text-darken-2',
       tags: [
         {
           uuid: '1',
@@ -86,6 +89,8 @@ export default {
       imgUrlMd: 'https://s1.ax1x.com/2018/12/20/FD6b60.md.png',
       commentCount: 5,
       readCount: 49,
+      color: 'green accent-3 white--text',
+      summaryTextColor: 'yellow--text text-lighten-1',
       tags: [
         {
           uuid: '1',
