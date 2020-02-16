@@ -11,14 +11,17 @@
         >
           <TagList></TagList>
           <MyInfo></MyInfo>
+          <MatrixCard></MatrixCard>
         </v-col>
         <v-col
           cols="12"
-          lg="10"
+          lg="8"
           md="9"
+          offset-lg="1"
+          offset-xl="2"
           order="3"
           order-md="1"
-          xl="10"
+          xl="6"
         >
           <router-view></router-view>
         </v-col>
@@ -30,12 +33,14 @@
 <script>
 import TagList from '@/components/main/blog/tag/TagList'
 import MyInfo from '@/components/main/blog/info/MyInfo'
+import MatrixCard from '@/components/common/matrix/MatrixCard'
 
 export default {
   name: 'blog',
   components: {
     TagList,
     MyInfo,
+    MatrixCard,
   },
 }
 </script>

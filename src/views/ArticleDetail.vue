@@ -1,14 +1,16 @@
 <template>
-  <v-container
-    class="grey darken-4 grey--text text-lighten-4"
-    grid-list-xs
-  >
-    <ArticleHeader
-      :deprecated="articleDetail.deprecated"
-      :imgUrl="articleDetail.imgUrl"
-    ></ArticleHeader>
-    <ArticleContent :content="articleDetail.content"></ArticleContent>
-  </v-container>
+  <fragment>
+    <v-container
+      class="grey darken-4 grey--text text-lighten-4"
+      fluid
+    >
+      <ArticleHeader
+        :deprecated="articleDetail.deprecated"
+        :imgUrl="articleDetail.imgUrl"
+      ></ArticleHeader>
+      <ArticleContent :content="articleDetail.content"></ArticleContent>
+    </v-container>
+  </fragment>
 </template>
 
 <script>
