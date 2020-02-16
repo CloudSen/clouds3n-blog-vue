@@ -15,6 +15,7 @@
 import ArticleHeader from '@/components/main/blog/articleDetail/ArticleHeader'
 import ArticleContent from '@/components/main/blog/articleDetail/ArticleContent'
 import articleDetailData from '@/testData/articleDetailData'
+import { goToTop } from '@/utils/windowSizeUtil'
 
 export default {
   name: 'article-detail',
@@ -30,6 +31,9 @@ export default {
   },
   created () {
     this.fetchArticleDetail()
+  },
+  mounted () {
+    goToTop(this.$vuetify)
   },
 }
 </script>
