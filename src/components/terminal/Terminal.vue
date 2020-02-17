@@ -134,22 +134,17 @@ export default {
     },
     setTimer () {
       const thiss = this
-      console.debug('设置计时器')
       this.timerId = setInterval(() => {
         thiss.currentTime = getCurrentTime()
       }, 1000)
     },
     unsetTimer () {
       if (this.timerId) {
-        console.debug('注销计时器')
         clearInterval(this.timerId)
       }
     },
     onResize () {
       this.pageHeight = getPageMaxHeight()
-      console.debug(`current page height is: ${this.pageHeight}`)
-      console.debug(`xs only? ${this.$vuetify.breakpoint.xsOnly}`)
-      console.debug(`terminal height: ${this.getTerminalHeight}`)
     },
     appendInput (keyCode) {
       this.userInput.push(String.fromCharCode(keyCode))
@@ -158,22 +153,19 @@ export default {
       const command = this.userInput.join('')
       const index = this.terminalData.supportedCommand.indexOf(command)
       this.clearInput()
-      console.debug(`输入命令：${command}`)
       if (index < 0) {
-        console.debug(`暂不支持的命令: ${this.userInput.join('')}`)
-      } else {
-        console.debug(`支持的命令: ${command}`)
-        switch (command) {
-          case 'cloudsen':
-            break
-          case 'home':
-            this.$router.push({ name: 'home' })
-            break
-          case 'exit':
-            break
-          default:
-            break
-        }
+        return
+      }
+      switch (command) {
+        case 'cloudsen':
+          break
+        case 'home':
+          this.$router.push({ name: 'home' })
+          break
+        case 'exit':
+          break
+        default:
+          break
       }
     },
     deleteInput () {
@@ -184,7 +176,6 @@ export default {
     clearInput () {
       // length = 0 not working
       this.userInput.splice(0, this.userInput.length)
-      console.debug(`clear user input: size=${this.userInput.length}`)
     },
     clearScreen () {
 
@@ -192,12 +183,9 @@ export default {
     startCombination (keyCode) {
       const key = String.fromCharCode(keyCode)
       const index = this.terminalData.supportedCombination.indexOf(key)
-      console.debug(`组合键：${key}`)
       if (index < 0) {
-        console.debug(`暂不支持的组合键: Ctrl + ${key}`)
         this.changeToNormalMode()
       } else {
-        console.debug(`支持的组合键: Ctrl + ${key}`)
         this.changeToNormalMode()
         if (this.terminalData.supportedCombination[index] === 'H') {
           this.$router.push({ name: 'home' })
@@ -208,17 +196,14 @@ export default {
       }
     },
     changeToCombinationMode () {
-      console.debug('进入组合键模式')
       this.isNormalMode = false
       this.isCombinationMode = true
     },
     changeToNormalMode () {
-      console.debug('进入普通输入模式')
       this.isNormalMode = true
       this.isCombinationMode = false
     },
     onKeyPress (e) {
-      console.debug(`keypress code: ${e.keyCode}`)
       const isNumber = e.keyCode >= 48 && e.keyCode <= 57
       const isWord = (e.keyCode >= 65 && e.keyCode <= 90) || (e.keyCode >= 97 && e.keyCode <= 122)
       const isCommaOrDot = (e.keyCode === 44 || e.keyCode === 46)
@@ -229,13 +214,11 @@ export default {
             this.appendInput(e.keyCode)
             break
           default:
-            console.debug('暂不支持的输入')
             break
         }
       }
     },
     onKeyDown (e) {
-      console.debug(`keydown code: ${e.keyCode}`)
       const isWord = e.keyCode >= 65 && e.keyCode <= 90
       switch (true) {
         // 回车
@@ -285,14 +268,12 @@ export default {
     this.userInput.length = 0
     this.pageHeight = getPageMaxHeight()
     // 添加按键监听
-    console.debug('注册按键监听...')
     window.addEventListener('keypress', this.onKeyPress)
     window.addEventListener('keydown', this.onKeyDown)
   },
   beforeDestroy () {
     this.clearInput()
     // 移除按键监听
-    console.debug('注销按键监听...')
     window.removeEventListener('keypress', this.onKeyPress)
     window.removeEventListener('keydown', this.onKeyDown)
     // 移除计时器

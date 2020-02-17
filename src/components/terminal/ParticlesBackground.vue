@@ -133,12 +133,10 @@ export default {
   },
   computed: {
     dynamicBackgroundStyle () {
-      console.debug(`{particles height: ${this.pageHeight}px}`)
       return `{height: ${this.pageHeight}px}`
     },
   },
   mounted () {
-    console.debug('Inital particles js')
     this.timerId = setTimeout(this.initParticles, 100)
   },
   beforeDestroy () {

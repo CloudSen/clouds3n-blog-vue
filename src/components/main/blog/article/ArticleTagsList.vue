@@ -30,7 +30,7 @@ export default {
   },
   methods: {
     onClick (uuid) {
-      console.debug(`点击了标签${uuid}`)
+      return uuid
     },
   },
 }

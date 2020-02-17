@@ -39,7 +39,6 @@ export default {
     },
   },
   mounted () {
-    console.debug('正在获取文章摘要列表...')
     this.fetchArticleSummaryData()
     goToTop(this.$vuetify)
   },

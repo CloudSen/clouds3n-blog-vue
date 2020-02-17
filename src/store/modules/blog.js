@@ -22,9 +22,7 @@ const actions = {}
 const mutations = {
   updateArticleListPage ($state, payload) {
     const STATE = $state
-    console.debug(`VUEX article list page update payload ${JSON.stringify(payload)}`)
     STATE.articleListPage = { ...STATE.articleListPage, ...payload }
-    console.debug(`VUEX article list page updated to ${JSON.stringify(STATE.articleListPage)}`)
   },
   updateArticleListCards ($state, payload) {
     const STATE = $state

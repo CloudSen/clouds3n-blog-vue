@@ -27,7 +27,6 @@ export default {
   components: { ArticleHeader, ArticleContent },
   methods: {
     fetchArticleDetail () {
-      console.debug(`文章详情路由参数：${this.$route.params.uuid}`)
       this.articleDetail = articleDetailData
     },
   },

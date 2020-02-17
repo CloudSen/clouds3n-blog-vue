@@ -18,7 +18,6 @@ export default {
   }),
   methods: {
     init () {
-      console.debug(`test terminal data: ${JSON.stringify(testTerminalData)}`)
       this.terminalData = testTerminalData
     },
   },
