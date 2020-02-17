@@ -12,6 +12,7 @@ import articlesData from '@/testData/articlesData'
 import ArticleList from '@/components/main/blog/article/ArticleList'
 import ArticlePaginationBar from '@/components/main/blog/article/ArticlePaginationBar'
 import RightSideScrollButton from '@/components/common/btn/floatingButton/RightSideScrollButton'
+import { goToTop } from '@/utils/windowSizeUtil'
 
 export default {
   name: 'blog-article',
@@ -40,6 +41,7 @@ export default {
   mounted () {
     console.debug('正在获取文章摘要列表...')
     this.fetchArticleSummaryData()
+    goToTop(this.$vuetify)
   },
 }
 </script>
