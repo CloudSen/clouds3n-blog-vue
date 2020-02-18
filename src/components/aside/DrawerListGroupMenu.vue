@@ -5,21 +5,21 @@
         <!-- 分组名 -->
         <v-subheader
           :class="subHeaderClass"
-          :key="item.id"
+          :key="item.uuid"
         >{{ item.name }}</v-subheader>
         <!-- 读取当前分组下的菜单项 -->
         <!-- 读取普通菜单 -->
         <NormalMenu
-          :key="`${item.id}-normal-menu`"
+          :key="`${item.uuid}-normal-menu`"
           :menuList="item.children"
         ></NormalMenu>
         <!-- 读取父级菜单 -->
         <ParentMenu
-          :key="`${item.id}-parent-menu`"
+          :key="`${item.uuid}-parent-menu`"
           :menuList="item.children"
         ></ParentMenu>
         <!-- 分组分界线 -->
-        <v-divider :key="`${item.id}-divider`"></v-divider>
+        <v-divider :key="`${item.uuid}-divider`"></v-divider>
       </template>
     </template>
   </fragment>

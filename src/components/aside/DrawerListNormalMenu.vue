@@ -2,7 +2,7 @@
   <fragment>
     <template v-for="menu in this.menuList">
       <v-list-item
-        :key="menu.id"
+        :key="menu.uuid"
         :to="menu.routerPath"
         active-class="indigo--text text--darken-4"
         v-if="menu.type === 2"

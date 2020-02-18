@@ -35,7 +35,7 @@ export default {
           if (menu.parentId === parentId) {
             // 非普通菜单需要读取子项
             if (menu.type !== 2) {
-              const subMenu = parse(list, menu.id)
+              const subMenu = parse(list, menu.uuid)
               if (subMenu && subMenu.length > 0) {
                 Object.assign(menu, { children: subMenu, hasChildren: true })
               }

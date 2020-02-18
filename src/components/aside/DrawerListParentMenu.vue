@@ -2,7 +2,7 @@
   <fragment>
     <template v-for="menu in menuList">
       <v-list-group
-        :key="menu.id"
+        :key="menu.uuid"
         :prepend-icon="menu.icon"
         :sub-group="isSubGroup"
         active-class="indigo--text text--darken-4"
@@ -16,13 +16,13 @@
         <!-- 读取父级菜单的子项 -->
         <!-- 读取父级菜单的普通菜单 -->
         <NormalMenu
-          :key="`${menu.id}-parent-submenu`"
+          :key="`${menu.uuid}-parent-submenu`"
           :menuList="menu.children"
         ></NormalMenu>
         <!-- 读取二级父级菜单 -->
         <drawer-list-parent-menu
           :isSubGroup="true"
-          :key="`${menu.id}-subparent-menu`"
+          :key="`${menu.uuid}-subparent-menu`"
           :menuList="menu.children"
         ></drawer-list-parent-menu>
       </v-list-group>
