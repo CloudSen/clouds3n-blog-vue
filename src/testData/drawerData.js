@@ -109,7 +109,7 @@ export default [
     name: 'Web终端',
     routerPath: '/home/welcome',
     icon: 'computer',
-    itemOrder: 1,
+    itemOrder: 8,
   },
   {
     uuid: '14',
@@ -118,7 +118,7 @@ export default [
     name: '友情链接',
     routerPath: '/home/friends',
     icon: 'people',
-    itemOrder: 1,
+    itemOrder: 9,
   },
   {
     uuid: '15',
@@ -127,6 +127,6 @@ export default [
     name: 'RSS订阅',
     routerPath: '/home/rss',
     icon: 'rss_feed',
-    itemOrder: 2,
+    itemOrder: 10,
   },
 ]
