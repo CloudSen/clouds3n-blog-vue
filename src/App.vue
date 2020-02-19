@@ -4,6 +4,12 @@
   </v-app>
 </template>
 
+<script>
+export default {
+  name: 'app',
+}
+</script>
+
 <style>
 * {
   padding: 0;
