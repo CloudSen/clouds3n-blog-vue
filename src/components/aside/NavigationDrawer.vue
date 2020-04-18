@@ -12,10 +12,11 @@
 </template>
 
 <script>
-import drawerItemsData from '@/testData/drawerData'
 import DrawerHeader from '@/components/aside/DrawerHeader'
 import DrawerList from '@/components/aside/DrawerList'
 import UPDATE_DRAWER_SHOW from '@/components/aside/constants/mutationType'
+import asideUrl from '@/api/asideUrl'
+import axios from '@/utils/axiosConfig'
 
 export default {
   name: 'navigation-drawer',
@@ -59,7 +60,17 @@ export default {
   },
   methods: {
     init () {
-      this.drawerData = drawerItemsData
+      this.fetchDrawerMenu()
+    },
+    fetchDrawerMenu () {
+      axios.get(asideUrl.menu.getAll)
+        .then((response) => {
+          const { data } = response
+          this.drawerData = data
+        })
+        .catch((error) => {
+          console.log(error)
+        })
     },
   },
   created () {
