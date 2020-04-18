@@ -5,7 +5,7 @@
       tile
     >
       <div
-        class="grey darken-4 grey--text text-lighten-4 markdown-body"
+        class="markdown-body content"
         v-html="renderContent"
       ></div>
     </v-card>
@@ -14,8 +14,8 @@
 
 <script>
 import md from '@/plugins/markdown-it'
-import '@/assets/md-css/md-dark.css'
-import 'highlight.js/styles/xt256.css'
+import '@/assets/md-css/md-light.css'
+import 'highlight.js/styles/atom-one-dark.css'
 
 export default {
   name: 'article-content',
@@ -33,5 +33,8 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
+.content {
+  padding: 20px 20px;
+}
 </style>

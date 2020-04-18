@@ -1,7 +1,7 @@
 <template>
   <fragment>
     <v-container
-      class="grey darken-4 grey--text text-lighten-4"
+      class="grey--text text-lighten-4"
       fluid
     >
       <ArticleHeader
