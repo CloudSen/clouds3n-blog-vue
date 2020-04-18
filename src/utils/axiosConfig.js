@@ -58,6 +58,7 @@ AXIOS.interceptors.response.use(
       errorHandler(response.code, response.message)
     } else {
       // 处理断网的情况
+      console.log(error)
     }
     return Promise.reject(error)
   },
