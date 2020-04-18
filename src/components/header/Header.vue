@@ -29,8 +29,9 @@
 <script>
 import { mapMutations } from 'vuex'
 import HeaderItems from '@/components/header/HeaderItems'
-import headerData from '@/testData/headerData'
 import TRIGGER_DRAWER from './constants/mutationType'
+import axios from '@/utils/axiosConfig'
+import headerUrl from '@/api/headerUrl'
 
 export default {
   name: 'top-header',
@@ -42,7 +43,17 @@ export default {
   }),
   methods: {
     init () {
-      this.items = headerData
+      this.fetchHeaderItems()
+    },
+    fetchHeaderItems () {
+      axios.get(headerUrl.menu.getAll)
+        .then((response) => {
+          const { data } = response
+          this.items = data
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     },
     ...mapMutations('navDrawer/', [TRIGGER_DRAWER]),
   },
