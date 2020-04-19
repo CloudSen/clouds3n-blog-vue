@@ -18,7 +18,8 @@
 
 <script>
 import ArticleTagList from '@/components/main/blog/article/ArticleTagsList'
-import articleTagData from '@/testData/articleTagData'
+import mainUrl from '@/api/mainUrl'
+import axios from '@/utils/axiosConfig'
 
 export default {
   name: 'tag-list',
@@ -30,7 +31,15 @@ export default {
   }),
   methods: {
     init () {
-      this.tagList = articleTagData
+      this.fetchAllTags()
+    },
+    fetchAllTags () {
+      axios.get(mainUrl.tag.getAll).then((response) => {
+        const { data } = response
+        this.tagList = data
+      }).catch((error) => {
+        console.log(error)
+      })
     },
   },
   created () {
