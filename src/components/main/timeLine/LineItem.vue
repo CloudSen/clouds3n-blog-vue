@@ -8,7 +8,7 @@
       v-for="item in itemList"
     >
       <template v-slot:opposite>
-        <span>{{item.opposite}}</span>
+        <span>{{parseTime(item.opposite)}}</span>
       </template>
       <v-card
         :color="item.color"
@@ -22,12 +22,19 @@
 </template>
 
 <script>
+import { parseCurrentDataTime } from '@/utils/dateTimeUtil'
+
 export default {
   name: 'line-item',
   props: {
     itemList: {
       type: Array,
       required: true,
+    },
+  },
+  methods: {
+    parseTime (time) {
+      return parseCurrentDataTime(time)
     },
   },
 }

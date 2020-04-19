@@ -1,12 +1,13 @@
 <template>
   <v-timeline>
-    <LineItem :itemList="itemData"></LineItem>
+    <LineItem :itemList="timeLineList"></LineItem>
   </v-timeline>
 </template>
 
 <script>
 import LineItem from '@/components/main/timeLine/LineItem'
-import timeLineData from '@/testData/timeLineData'
+import mainUrl from '@/api/mainUrl'
+import axios from '@/utils/axiosConfig'
 
 export default {
   name: 'timeline',
@@ -14,8 +15,23 @@ export default {
     LineItem,
   },
   data: () => ({
-    itemData: timeLineData,
+    timeLineList: [],
   }),
+  methods: {
+    init () {
+      this.fetchTimeLineData()
+    },
+    fetchTimeLineData () {
+      axios.get(mainUrl.timeLine.getAll)
+        .then((response) => {
+          const { data } = response
+          this.timeLineList = data
+        }).catch((error) => console.log(error))
+    },
+  },
+  mounted () {
+    this.init()
+  },
 }
 </script>
 

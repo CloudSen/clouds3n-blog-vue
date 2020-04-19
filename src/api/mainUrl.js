@@ -8,4 +8,7 @@ export default {
   article: {
     getSummaryList: '/blog/article/querySummary',
   },
+  timeLine: {
+    getAll: '/main/time-line',
+  },
 }
