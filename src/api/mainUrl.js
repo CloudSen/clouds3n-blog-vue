@@ -5,4 +5,7 @@ export default {
   tag: {
     getAll: '/blog/article-tag',
   },
+  article: {
+    getSummaryList: '/blog/article/querySummary',
+  },
 }

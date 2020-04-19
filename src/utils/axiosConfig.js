@@ -43,7 +43,6 @@ AXIOS.interceptors.request.use(
 
 AXIOS.interceptors.response.use(
   (res) => {
-    console.log('sfsd')
     if (res && res.status === 200) {
       if (res.data && res.data.success && res.data.code === 200) {
         return Promise.resolve(res.data)
