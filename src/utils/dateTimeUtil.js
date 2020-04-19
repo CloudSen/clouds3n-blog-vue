@@ -13,3 +13,9 @@ export function getCurrentDateTime () {
   const today = new Date()
   return `${today.toISOString().substring(0, 10)} ${today.toTimeString().substring(0, 9)}`
 }
+
+// yyyy-MM-dd HH:mm:ss
+export function parseCurrentDataTime (time) {
+  const dateTime = new Date(time)
+  return `${dateTime.toISOString().substring(0, 10)} ${dateTime.toTimeString().substring(0, 9)}`
+}

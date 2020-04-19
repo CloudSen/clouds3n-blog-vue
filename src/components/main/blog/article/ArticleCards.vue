@@ -50,7 +50,7 @@
                   text
                 >
                   <v-icon left>access_time</v-icon>
-                  <span class="hackFont">{{card.updateTime}}</span>
+                  <span class="hackFont">{{parseTime}}</span>
                 </v-btn>
               </v-col>
             </v-row>
@@ -64,6 +64,7 @@
 <script>
 import ArticleTagsList from '@/components/main/blog/article/ArticleTagsList'
 import ProgressImg from '@/components/common/img/ProgressImg'
+import { parseCurrentDataTime } from '@/utils/dateTimeUtil'
 
 export default {
   name: 'article-cards',
@@ -74,6 +75,11 @@ export default {
     },
   },
   components: { ArticleTagsList, ProgressImg },
+  computed: {
+    parseTime () {
+      return parseCurrentDataTime(this.card.updateTime)
+    },
+  },
 }
 </script>
 
