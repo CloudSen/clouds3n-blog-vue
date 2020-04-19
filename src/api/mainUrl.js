@@ -7,6 +7,7 @@ export default {
   },
   article: {
     getSummaryList: '/blog/article/querySummary',
+    getArticleDetail: '/blog/article/',
   },
   timeLine: {
     getAll: '/main/time-line',

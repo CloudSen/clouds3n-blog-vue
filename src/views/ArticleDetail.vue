@@ -16,10 +16,9 @@
 <script>
 import ArticleHeader from '@/components/main/blog/articleDetail/ArticleHeader'
 import ArticleContent from '@/components/main/blog/articleDetail/ArticleContent'
-import articleDetailData from '@/testData/articleDetailData'
 import { goToTop } from '@/utils/windowSizeUtil'
-// import mainUrl from '@/api/mainUrl'
-// import axios from '@/utils/axiosConfig'
+import mainUrl from '@/api/mainUrl'
+import axios from '@/utils/axiosConfig'
 
 export default {
   name: 'article-detail',
@@ -32,7 +31,11 @@ export default {
       this.fetchArticleDetail()
     },
     fetchArticleDetail () {
-      this.articleDetail = articleDetailData
+      axios.get(`${mainUrl.article.getArticleDetail}${this.$route.params.uuid}`)
+        .then((response) => {
+          const { data } = response
+          this.articleDetail = data
+        }).catch((error) => console.error(error))
     },
   },
   created () {
