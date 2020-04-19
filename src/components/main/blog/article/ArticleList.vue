@@ -19,8 +19,8 @@
         cols="12"
         v-if="!this.articleListCards || this.articleListCards.length === 0"
       >
-        <v-card>
-          <v-card-text>暂无文章</v-card-text>
+        <v-card color="red darken-2">
+          <v-card-text>网络错误</v-card-text>
         </v-card>
       </v-col>
     </v-row>

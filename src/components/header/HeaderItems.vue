@@ -15,6 +15,20 @@
         {{item.name}}
       </v-btn>
     </template>
+    <template v-if="!this.items || this.items.length === 0">
+      <v-btn
+        class="hidden-sm-and-down red darken-2"
+        depressed
+        key="error404"
+        text
+      >
+        <i
+          class="material-icons mr-1"
+          left
+        >error</i>
+        网络错误
+      </v-btn>
+    </template>
   </fragment>
 </template>
 
