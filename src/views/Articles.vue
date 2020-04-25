@@ -1,11 +1,11 @@
 <template>
   <fragment>
-    <template v-if="!loadingData.active">
+    <template v-if="!loadingArticleListData.active">
       <ArticleList></ArticleList>
       <ArticlePaginationBar></ArticlePaginationBar>
     </template>
     <template v-else>
-      <CenterLinearLoading :loadingData="this.loadingData"></CenterLinearLoading>
+      <CenterLinearLoading :loadingData="this.loadingArticleListData"></CenterLinearLoading>
     </template>
     <RightSideScrollButton></RightSideScrollButton>
   </fragment>
@@ -30,19 +30,19 @@ export default {
     CenterLinearLoading,
   },
   data: () => ({
-    loadingData: {
-      text: '正在加载文章列表...',
-      active: true,
-      absolute: true,
-      top: true,
-      rounded: false,
-    },
   }),
+  computed: {
+    ...mapState('blog/', [
+      'articleListPage',
+      'loadingArticleListData',
+    ]),
+  },
   methods: {
     ...mapMutations('blog/', [
       'updateArticleListPage',
       'updateArticleListCards',
       'resetArticleListPage',
+      'updateArticleListDataLoading',
     ]),
     init () {
       this.fetchArticleSummaryData()
@@ -59,14 +59,9 @@ export default {
             total: data.total,
             pages: data.pages,
           })
-          this.loadingData.active = false
+          this.updateArticleListDataLoading({ active: false })
         }).catch((error) => console.log(error))
     },
-  },
-  computed: {
-    ...mapState('blog/', [
-      'articleListPage',
-    ]),
   },
   mounted () {
     this.init()

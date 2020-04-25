@@ -25,7 +25,8 @@
 
 <script>
 import { mapState, mapMutations } from 'vuex'
-import articleOnePageData from '@/testData/articleOnePageData'
+import mainUrl from '@/api/mainUrl'
+import axios from '@/utils/axiosConfig'
 
 export default {
   name: 'article-pagination-bar',
@@ -38,14 +39,27 @@ export default {
     ...mapMutations('blog/', [
       'updateArticleListCards',
       'updateArticleListPage',
+      'updateArticleListDataLoading',
     ]),
     onPageChange (current) {
-      this.fetchArticleSummaryData()
+      this.updateArticleListDataLoading({ active: true })
       this.updateArticleListPage({ current })
+      this.fetchArticleSummaryData()
+      this.updateArticleListDataLoading({ active: false })
     },
     fetchArticleSummaryData () {
-      // TODO 调用API 传articleListPage分页参数和查询条件
-      this.updateArticleListCards(articleOnePageData)
+      axios.post(mainUrl.article.getSummaryList, { page: this.articleListPage })
+        .then((response) => {
+          const { data } = response
+          const { records } = data
+          this.updateArticleListCards(records)
+          this.updateArticleListPage({
+            size: data.size,
+            current: data.current,
+            total: data.total,
+            pages: data.pages,
+          })
+        }).catch((error) => console.log(error))
     },
   },
 }

@@ -15,6 +15,13 @@ const state = {
   articleListCards: [],
   tagList: [],
   aboutMe: {},
+  loadingArticleListData: {
+    text: '正在加载文章列表...',
+    active: true,
+    absolute: true,
+    top: true,
+    rounded: false,
+  },
 }
 
 const getters = {}
@@ -46,6 +53,10 @@ const mutations = {
   saveAboutMe ($state, payload) {
     const STATE = $state
     STATE.aboutMe = payload
+  },
+  updateArticleListDataLoading ($state, payload) {
+    const STATE = $state
+    STATE.loadingArticleListData = { ...STATE.loadingArticleListData, ...payload }
   },
 }
 
