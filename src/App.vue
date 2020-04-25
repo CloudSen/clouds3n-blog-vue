@@ -17,6 +17,7 @@ import CenterLinearLoading from '@/components/common/loading/CenterLinearLoading
 import asideUrl from '@/api/asideUrl'
 import headerUrl from '@/api/headerUrl'
 import mainUrl from '@/api/mainUrl'
+import welcomeUrl from '@/api/welcomeUrl'
 import axios from '@/utils/axiosConfig'
 
 export default {
@@ -42,11 +43,15 @@ export default {
       'saveTagList',
       'saveAboutMe',
     ]),
+    ...mapMutations('welcome/', [
+      'saveTerminalConfig',
+    ]),
     init () {
       this.fetchDrawerMenu()
       this.fetchHeaderMenus()
       this.fetchAllTags()
       this.fetchAboutMe()
+      this.fetchTerminalConfig()
     },
     fetchDrawerMenu () {
       axios.get(asideUrl.menu.getAll)
@@ -88,6 +93,16 @@ export default {
             copyright: data.copyright,
           }
           this.saveAboutMe(aboutMeData)
+        }).catch((error) => {
+          console.error(error)
+        })
+    },
+    fetchTerminalConfig () {
+      axios.get(welcomeUrl.terminal.getTerminalConfig)
+        .then((response) => {
+          const { data } = response
+          console.warn(JSON.stringify(data))
+          this.saveTerminalConfig(data)
           this.loadingData.active = false
         }).catch((error) => {
           console.error(error)

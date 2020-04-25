@@ -105,7 +105,6 @@ export default {
   }),
   methods: {
     init () {
-      console.log(`terminal passing data: ${JSON.stringify(this.data)}`)
       const defaultData = {
         supportedCombination: ['H'],
         supportedCommand: ['home', 'clear', 'info', 'screenfetch', 'cloudsen', 'exit'],
@@ -128,7 +127,6 @@ export default {
       if (!this.terminalData.noneMobileTerminalHeight || this.terminalData.noneMobileTerminalHeight === '') {
         this.terminalData.noneMobileTerminalHeight = defaultData.noneMobileTerminalHeight
       }
-      console.log(`terminal inited data: ${JSON.stringify(this.terminalData)}`)
       this.setTimer()
       this.show = true
     },

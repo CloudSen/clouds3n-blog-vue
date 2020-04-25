@@ -1,12 +1,12 @@
 <template>
   <fragment>
-    <Terminal :data="this.terminalData"></Terminal>
+    <Terminal :data="this.terminalConfig"></Terminal>
   </fragment>
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import Terminal from '@/components/terminal/Terminal'
-import testTerminalData from '@/testData/terminalData'
 
 export default {
   name: 'welcome',
@@ -14,15 +14,9 @@ export default {
     Terminal,
   },
   data: () => ({
-    terminalData: {},
   }),
-  methods: {
-    init () {
-      this.terminalData = testTerminalData
-    },
-  },
-  created () {
-    this.init()
+  computed: {
+    ...mapState('welcome/', ['terminalConfig']),
   },
 }
 </script>

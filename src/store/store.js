@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 import navDrawer from '@/store/modules/navDrawer'
 import blog from '@/store/modules/blog'
 import header from '@/store/modules/header'
+import welcome from '@/store/modules/welcome'
 
 Vue.use(Vuex)
 
@@ -17,5 +18,6 @@ export default new Vuex.Store({
     navDrawer,
     blog,
     header,
+    welcome,
   },
 })
