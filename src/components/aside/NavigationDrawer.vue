@@ -17,12 +17,11 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import DrawerHeader from '@/components/aside/DrawerHeader'
 import DrawerList from '@/components/aside/DrawerList'
 import CenterLinearLoading from '@/components/common/loading/CenterLinearLoading'
-import UPDATE_DRAWER_SHOW from '@/components/aside/constants/mutationType'
-import asideUrl from '@/api/asideUrl'
-import axios from '@/utils/axiosConfig'
+import { UPDATE_DRAWER_SHOW } from '@/components/aside/constants/mutationType'
 
 export default {
   name: 'navigation-drawer',
@@ -32,13 +31,9 @@ export default {
     CenterLinearLoading,
   },
   data: () => ({
-    drawerData: [],
-    loadingData: {
-      text: '正在加载菜单列表...',
-      active: true,
-    },
   }),
   computed: {
+    ...mapState('navDrawer/', ['drawerMenu', 'loadingData']),
     // 解析分组菜单
     parseMenuSourceToGroupList () {
       function parse (list, parentId) {
@@ -57,7 +52,7 @@ export default {
         })
         return menuGroupList
       }
-      const groupList = parse(this.drawerData, '-1')
+      const groupList = parse(this.drawerMenu, '-1')
       return groupList
     },
     showDrawer: {
@@ -68,25 +63,6 @@ export default {
         this.$store.commit(`navDrawer/${UPDATE_DRAWER_SHOW}`, value)
       },
     },
-  },
-  methods: {
-    init () {
-      this.fetchDrawerMenu()
-    },
-    fetchDrawerMenu () {
-      axios.get(asideUrl.menu.getAll)
-        .then((response) => {
-          const { data } = response
-          this.drawerData = data
-          this.loadingData.active = false
-        })
-        .catch((error) => {
-          console.log(error)
-        })
-    },
-  },
-  created () {
-    this.init()
   },
 }
 </script>

@@ -1,13 +1,13 @@
 export default {
   aboutMe: {
-    getOne: '/aboutme/about-me',
+    getOne: '/main/about-me',
   },
   tag: {
-    getAll: '/blog/article-tag',
+    getAll: '/main/blog/article-tag',
   },
   article: {
-    getSummaryList: '/blog/article/querySummary',
-    getArticleDetail: '/blog/article/',
+    getSummaryList: '/main/blog/article/querySummary',
+    getArticleDetail: '/main/blog/article',
   },
   timeLine: {
     getAll: '/main/time-line',

@@ -22,16 +22,14 @@
 
     <v-spacer></v-spacer>
 
-    <HeaderItems :items="this.items"></HeaderItems>
+    <HeaderItems :items="this.headerMenu"></HeaderItems>
   </v-app-bar>
 </template>
 
 <script>
-import { mapMutations } from 'vuex'
+import { mapMutations, mapState } from 'vuex'
 import HeaderItems from '@/components/header/HeaderItems'
 import TRIGGER_DRAWER from './constants/mutationType'
-import axios from '@/utils/axiosConfig'
-import headerUrl from '@/api/headerUrl'
 
 export default {
   name: 'top-header',
@@ -41,24 +39,11 @@ export default {
   data: () => ({
     items: [],
   }),
-  methods: {
-    init () {
-      this.fetchHeaderItems()
-    },
-    fetchHeaderItems () {
-      axios.get(headerUrl.menu.getAll)
-        .then((response) => {
-          const { data } = response
-          this.items = data
-        })
-        .catch((error) => {
-          console.error(error)
-        })
-    },
-    ...mapMutations('navDrawer/', [TRIGGER_DRAWER]),
+  computed: {
+    ...mapState('header', ['headerMenu']),
   },
-  mounted () {
-    this.init()
+  methods: {
+    ...mapMutations('navDrawer/', [TRIGGER_DRAWER]),
   },
 }
 </script>

@@ -1,12 +1,72 @@
 <template>
-  <v-app dark>
-    <router-view />
-  </v-app>
+  <fragment>
+    <v-app dark>
+      <template v-if="!loadingData.active">
+        <router-view />
+      </template>
+      <template v-else>
+        <CenterLinearLoading :loadingData="this.loadingData"></CenterLinearLoading>
+      </template>
+    </v-app>
+  </fragment>
 </template>
 
 <script>
+import { mapMutations } from 'vuex'
+import CenterLinearLoading from '@/components/common/loading/CenterLinearLoading'
+import asideUrl from '@/api/asideUrl'
+import headerUrl from '@/api/headerUrl'
+import axios from '@/utils/axiosConfig'
+
 export default {
   name: 'app',
+  components: {
+    CenterLinearLoading,
+  },
+  data: () => ({
+    loadingData: {
+      text: '正在加载应用数据...',
+      active: true,
+    },
+  }),
+  methods: {
+    ...mapMutations('navDrawer/', [
+      'cacheDrawerMenu',
+      'updateLoading',
+    ]),
+    ...mapMutations('header/', [
+      'saveHeaderMenu',
+    ]),
+    init () {
+      this.fetchDrawerMenu()
+      this.fetchHeaderMenus()
+    },
+    fetchDrawerMenu () {
+      axios.get(asideUrl.menu.getAll)
+        .then((response) => {
+          const { data } = response
+          this.cacheDrawerMenu(data)
+          this.updateLoading({ active: false })
+        })
+        .catch((error) => {
+          console.log(error)
+        })
+    },
+    fetchHeaderMenus () {
+      axios.get(headerUrl.menu.getAll)
+        .then((response) => {
+          const { data } = response
+          this.saveHeaderMenu(data)
+          this.loadingData.active = false
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+    },
+  },
+  created () {
+    this.init()
+  },
 }
 </script>
 
