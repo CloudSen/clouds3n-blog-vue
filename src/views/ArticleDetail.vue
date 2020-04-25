@@ -4,16 +4,28 @@
       class="grey--text text-lighten-4"
       fluid
     >
-      <template v-if="!loadingData.active">
-        <ArticleHeader
-          :deprecated="articleDetail.deprecated"
-          :imgUrl="articleDetail.imgUrl"
-        ></ArticleHeader>
-        <ArticleContent :content="articleDetail.content"></ArticleContent>
-      </template>
-      <template v-else>
-        <CenterLinearLoading :loadingData="this.loadingData"></CenterLinearLoading>
-      </template>
+      <v-row dense>
+        <v-col
+          cols="12"
+          lg="8"
+          md="10"
+          offset-lg="2"
+          offset-md="1"
+          offset-xl="3"
+          xl="6"
+        >
+          <template v-if="!loadingData.active">
+            <ArticleHeader
+              :deprecated="articleDetail.deprecated"
+              :imgUrl="articleDetail.imgUrl"
+            ></ArticleHeader>
+            <ArticleContent :content="articleDetail.content"></ArticleContent>
+          </template>
+          <template v-else>
+            <CenterLinearLoading :loadingData="this.loadingData"></CenterLinearLoading>
+          </template>
+        </v-col>
+      </v-row>
     </v-container>
   </fragment>
 </template>

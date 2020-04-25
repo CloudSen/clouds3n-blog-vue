@@ -5,7 +5,7 @@
         :class="`elevation-${hover ? 24 : 2}`"
         :color="card.color ? card.color : `white`"
         :disabled="card.disabled"
-        :to="`/home/blog/articles/${card.uuid}`"
+        :to="`/home/articles/${card.uuid}`"
         exact
         raised
         ripple

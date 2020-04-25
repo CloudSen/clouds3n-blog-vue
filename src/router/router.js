@@ -39,13 +39,13 @@ const routes = [
             title: '文章列表',
             component: () => import('@/views/Articles'),
           },
-          {
-            path: 'articles/:uuid',
-            name: 'articleDetail',
-            title: '文章详情',
-            component: () => import('@/views/ArticleDetail'),
-          },
         ],
+      },
+      {
+        path: 'articles/:uuid',
+        name: 'articleDetail',
+        title: '文章详情',
+        component: () => import('@/views/ArticleDetail'),
       },
       {
         path: 'about',
