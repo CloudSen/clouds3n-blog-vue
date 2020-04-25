@@ -13,6 +13,8 @@ const state = {
     pages: 0,
   },
   articleListCards: [],
+  tagList: [],
+  aboutMe: {},
 }
 
 const getters = {}
@@ -37,7 +39,14 @@ const mutations = {
       pages: 0,
     }
   },
-
+  saveTagList ($state, payload) {
+    const STATE = $state
+    STATE.tagList = payload
+  },
+  saveAboutMe ($state, payload) {
+    const STATE = $state
+    STATE.aboutMe = payload
+  },
 }
 
 export default {

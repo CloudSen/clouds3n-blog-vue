@@ -16,6 +16,7 @@ import { mapMutations } from 'vuex'
 import CenterLinearLoading from '@/components/common/loading/CenterLinearLoading'
 import asideUrl from '@/api/asideUrl'
 import headerUrl from '@/api/headerUrl'
+import mainUrl from '@/api/mainUrl'
 import axios from '@/utils/axiosConfig'
 
 export default {
@@ -37,9 +38,15 @@ export default {
     ...mapMutations('header/', [
       'saveHeaderMenu',
     ]),
+    ...mapMutations('blog/', [
+      'saveTagList',
+      'saveAboutMe',
+    ]),
     init () {
       this.fetchDrawerMenu()
       this.fetchHeaderMenus()
+      this.fetchAllTags()
+      this.fetchAboutMe()
     },
     fetchDrawerMenu () {
       axios.get(asideUrl.menu.getAll)
@@ -57,9 +64,32 @@ export default {
         .then((response) => {
           const { data } = response
           this.saveHeaderMenu(data)
-          this.loadingData.active = false
         })
         .catch((error) => {
+          console.error(error)
+        })
+    },
+    fetchAllTags () {
+      axios.get(mainUrl.tag.getAll).then((response) => {
+        const { data } = response
+        this.saveTagList(data)
+      }).catch((error) => {
+        console.log(error)
+      })
+    },
+    fetchAboutMe () {
+      axios.get(mainUrl.aboutMe.getOne)
+        .then((response) => {
+          const { data } = response
+          const aboutMeData = {
+            introduce: data.introduce,
+            code: data.code,
+            contact: data.contact,
+            copyright: data.copyright,
+          }
+          this.saveAboutMe(aboutMeData)
+          this.loadingData.active = false
+        }).catch((error) => {
           console.error(error)
         })
     },

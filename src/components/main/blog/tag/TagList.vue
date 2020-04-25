@@ -17,9 +17,8 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import ArticleTagList from '@/components/main/blog/article/ArticleTagsList'
-import mainUrl from '@/api/mainUrl'
-import axios from '@/utils/axiosConfig'
 
 export default {
   name: 'tag-list',
@@ -27,23 +26,9 @@ export default {
     ArticleTagList,
   },
   data: () => ({
-    tagList: [],
   }),
-  methods: {
-    init () {
-      this.fetchAllTags()
-    },
-    fetchAllTags () {
-      axios.get(mainUrl.tag.getAll).then((response) => {
-        const { data } = response
-        this.tagList = data
-      }).catch((error) => {
-        console.log(error)
-      })
-    },
-  },
-  created () {
-    this.init()
+  computed: {
+    ...mapState('blog/', ['tagList']),
   },
 }
 </script>
