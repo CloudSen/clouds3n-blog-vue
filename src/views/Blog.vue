@@ -6,7 +6,7 @@
           cols="12"
           lg="2"
           md="3"
-          order="2"
+          order="3"
           xl="2"
         >
           <TagList></TagList>
@@ -19,7 +19,7 @@
           md="9"
           offset-lg="1"
           offset-xl="2"
-          order="3"
+          order="2"
           order-md="1"
           xl="6"
         >
