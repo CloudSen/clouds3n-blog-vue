@@ -1,7 +1,12 @@
 <template>
   <fragment>
-    <ArticleList></ArticleList>
-    <ArticlePaginationBar></ArticlePaginationBar>
+    <template v-if="!loadingData.active">
+      <ArticleList></ArticleList>
+      <ArticlePaginationBar></ArticlePaginationBar>
+    </template>
+    <template v-else>
+      <CenterLinearLoading :loadingData="this.loadingData"></CenterLinearLoading>
+    </template>
     <RightSideScrollButton></RightSideScrollButton>
   </fragment>
 </template>
@@ -11,6 +16,7 @@ import { mapState, mapMutations } from 'vuex'
 import ArticleList from '@/components/main/blog/article/ArticleList'
 import ArticlePaginationBar from '@/components/main/blog/article/ArticlePaginationBar'
 import RightSideScrollButton from '@/components/common/btn/floatingButton/RightSideScrollButton'
+import CenterLinearLoading from '@/components/common/loading/CenterLinearLoading'
 import { goToTop } from '@/utils/windowSizeUtil'
 import mainUrl from '@/api/mainUrl'
 import axios from '@/utils/axiosConfig'
@@ -21,9 +27,16 @@ export default {
     ArticleList,
     ArticlePaginationBar,
     RightSideScrollButton,
+    CenterLinearLoading,
   },
   data: () => ({
-
+    loadingData: {
+      text: '正在加载文章列表...',
+      active: true,
+      absolute: true,
+      top: true,
+      rounded: false,
+    },
   }),
   methods: {
     ...mapMutations('blog/', [
@@ -46,6 +59,7 @@ export default {
             total: data.total,
             pages: data.pages,
           })
+          this.loadingData.active = false
         }).catch((error) => console.log(error))
     },
   },

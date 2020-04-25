@@ -3,16 +3,22 @@
     fill-height
     grid-list-xs
   >
-    <div class="content markdown-body">
-      <div v-html="renderIntroduce"></div>
-      <div v-html="renderCode"></div>
-      <div v-html="renderContact"></div>
-      <div v-html="renderCopyright"></div>
-    </div>
+    <template v-if="!loadingData.active">
+      <div class="content markdown-body">
+        <div v-html="renderIntroduce"></div>
+        <div v-html="renderCode"></div>
+        <div v-html="renderContact"></div>
+        <div v-html="renderCopyright"></div>
+      </div>
+    </template>
+    <template v-else>
+      <CenterLinearLoading :loadingData="this.loadingData"></CenterLinearLoading>
+    </template>
   </v-container>
 </template>
 
 <script>
+import CenterLinearLoading from '@/components/common/loading/CenterLinearLoading'
 import md from '@/plugins/markdown-it'
 import '@/assets/md-css/md-light.css'
 import 'highlight.js/styles/atom-one-dark.css'
@@ -21,12 +27,22 @@ import axios from '@/utils/axiosConfig'
 
 export default {
   name: 'about-me',
+  components: {
+    CenterLinearLoading,
+  },
   data () {
     return {
       introduce: '',
       code: '',
       contact: '',
       copyright: '',
+      loadingData: {
+        text: '正在加载关于我...',
+        active: true,
+        absolute: true,
+        top: true,
+        rounded: false,
+      },
     }
   },
   methods: {
@@ -41,6 +57,7 @@ export default {
           this.code = data.code
           this.contact = data.contact
           this.copyright = data.copyright
+          this.loadingData.active = false
         }).catch((error) => {
           console.error(error)
         })

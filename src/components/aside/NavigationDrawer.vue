@@ -7,13 +7,19 @@
     width="250"
   >
     <DrawerHeader></DrawerHeader>
-    <DrawerList :drawerData="this.parseMenuSourceToGroupList"></DrawerList>
+    <template v-if="!loadingData.active">
+      <DrawerList :drawerData="this.parseMenuSourceToGroupList"></DrawerList>
+    </template>
+    <template v-else>
+      <CenterLinearLoading :loadingData="this.loadingData"></CenterLinearLoading>
+    </template>
   </v-navigation-drawer>
 </template>
 
 <script>
 import DrawerHeader from '@/components/aside/DrawerHeader'
 import DrawerList from '@/components/aside/DrawerList'
+import CenterLinearLoading from '@/components/common/loading/CenterLinearLoading'
 import UPDATE_DRAWER_SHOW from '@/components/aside/constants/mutationType'
 import asideUrl from '@/api/asideUrl'
 import axios from '@/utils/axiosConfig'
@@ -23,9 +29,14 @@ export default {
   components: {
     DrawerHeader,
     DrawerList,
+    CenterLinearLoading,
   },
   data: () => ({
     drawerData: [],
+    loadingData: {
+      text: '正在加载菜单列表...',
+      active: true,
+    },
   }),
   computed: {
     // 解析分组菜单
@@ -67,6 +78,7 @@ export default {
         .then((response) => {
           const { data } = response
           this.drawerData = data
+          this.loadingData.active = false
         })
         .catch((error) => {
           console.log(error)

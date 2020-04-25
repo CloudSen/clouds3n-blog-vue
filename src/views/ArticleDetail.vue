@@ -4,11 +4,16 @@
       class="grey--text text-lighten-4"
       fluid
     >
-      <ArticleHeader
-        :deprecated="articleDetail.deprecated"
-        :imgUrl="articleDetail.imgUrl"
-      ></ArticleHeader>
-      <ArticleContent :content="articleDetail.content"></ArticleContent>
+      <template v-if="!loadingData.active">
+        <ArticleHeader
+          :deprecated="articleDetail.deprecated"
+          :imgUrl="articleDetail.imgUrl"
+        ></ArticleHeader>
+        <ArticleContent :content="articleDetail.content"></ArticleContent>
+      </template>
+      <template v-else>
+        <CenterLinearLoading :loadingData="this.loadingData"></CenterLinearLoading>
+      </template>
     </v-container>
   </fragment>
 </template>
@@ -16,6 +21,7 @@
 <script>
 import ArticleHeader from '@/components/main/blog/articleDetail/ArticleHeader'
 import ArticleContent from '@/components/main/blog/articleDetail/ArticleContent'
+import CenterLinearLoading from '@/components/common/loading/CenterLinearLoading'
 import { goToTop } from '@/utils/windowSizeUtil'
 import mainUrl from '@/api/mainUrl'
 import axios from '@/utils/axiosConfig'
@@ -24,8 +30,15 @@ export default {
   name: 'article-detail',
   data: () => ({
     articleDetail: {},
+    loadingData: {
+      text: '正在加载文章...',
+      active: true,
+      absolute: true,
+      top: true,
+      rounded: false,
+    },
   }),
-  components: { ArticleHeader, ArticleContent },
+  components: { ArticleHeader, ArticleContent, CenterLinearLoading },
   methods: {
     init () {
       this.fetchArticleDetail()
@@ -35,6 +48,7 @@ export default {
         .then((response) => {
           const { data } = response
           this.articleDetail = data
+          this.loadingData.active = false
         }).catch((error) => console.error(error))
     },
   },
