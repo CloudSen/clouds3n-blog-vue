@@ -17,7 +17,7 @@
         ></ProgressImg>
         <v-card-title>
           <div>
-            <span class="title">{{card.title}}</span>
+            <span class="card-title">{{card.title}}</span>
           </div>
         </v-card-title>
         <v-card-text
@@ -86,5 +86,15 @@ export default {
 <style scoped>
 .no-border {
   border: none !important;
+}
+
+.card-title {
+  font-size: 1.25rem !important;
+  font-weight: 500;
+  line-height: 2rem;
+  letter-spacing: 0.0125em !important;
+  font-family: "微软雅黑", "Microsoft YaHei UI", "Microsoft YaHei",
+    "WenQuanYi Micro Hei", "PingFang SC", "Helvetica Neue", Helvetica, Arial,
+    sans-serif !important;
 }
 </style>
