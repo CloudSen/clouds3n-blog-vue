@@ -11,6 +11,11 @@ const state = {
     current: 1,
     total: 0,
     pages: 0,
+    orders: [
+      {
+        column: 'update_time',
+      },
+    ],
   },
   articleListCards: [],
   tagList: [],
