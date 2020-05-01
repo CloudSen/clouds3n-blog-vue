@@ -68,6 +68,13 @@
                     <span class="user-input">{{ getUserInput }}</span>
                   </p>
                 </v-card-text>
+                <v-card-actions>
+                  <v-btn
+                    class="mobile-click grey lighten-3 black--text hidden-lg-and-up"
+                    text
+                    to="/home"
+                  >首页</v-btn>
+                </v-card-actions>
               </v-card>
             </v-scroll-y-transition>
           </v-col>
@@ -295,6 +302,13 @@ export default {
   white-space: nowrap;
 }
 
+/* .hack-typing .mobile-click {
+  font: 14px/1.5 Hack, Consolas, Monaco, Menlo !important; */
+/* 刚开始不显示，通过动画显示 */
+/* visibility: hidden;
+  white-space: nowrap;
+} */
+
 .hack-typing span {
   font: 14px/1.5 Hack, Consolas, Monaco, Menlo !important;
 }
@@ -373,6 +387,10 @@ export default {
   animation: typing 0.5s ease 11.5s 1 normal forwards;
 }
 
+/* .hack-typing .mobile-click {
+  animation: mobile-btn 0.5s ease 11.5s 1 normal forwards;
+} */
+
 /* 光标 */
 .hack-typing .user-input {
   animation: blink-caret 0.5s linear 12s infinite normal;
@@ -400,6 +418,16 @@ export default {
   }
   50% {
     border-color: transparent;
+  }
+}
+
+/* 手机按钮动画 */
+@keyframes mobile-btn {
+  from {
+    visibility: hidden;
+  }
+  to {
+    visibility: visible;
   }
 }
 
