@@ -120,12 +120,19 @@ export default {
   padding: 0;
   margin: 0;
   font-size: 14px/1.5;
-  font-family: "\5b8b\4f53", Arial, "WenQuanYi Micro Hei", "Microsoft Yahei",
-    "Hiragino Sans GB", "Heiti SC", sans-serif;
+  font-family: "微软雅黑", "Microsoft YaHei UI", "Microsoft YaHei",
+    "WenQuanYi Micro Hei", "PingFang SC", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
 }
 
 .hackFont {
   font: 14px/1.5 Hack, Consolas, Monaco, Menlo !important;
+}
+
+.commonFont {
+  font-family: "微软雅黑", "Microsoft YaHei UI", "Microsoft YaHei",
+    "WenQuanYi Micro Hei", "PingFang SC", "Helvetica Neue", Helvetica, Arial,
+    sans-serif !important;
 }
 
 /* 滚动条样式 start */
