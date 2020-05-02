@@ -2,7 +2,7 @@
   <fragment>
     <v-toolbar dark>
       <v-spacer></v-spacer>
-      <v-toolbar-title>专题</v-toolbar-title>
+      <v-toolbar-title>{{this.topicName}}</v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
     <template v-if="!loadingArticleListData.active">
@@ -41,6 +41,7 @@ export default {
       sm: '6',
       xl: '2',
     },
+    topicName: '专题',
   }),
   computed: {
     ...mapState('blog/', [
@@ -59,20 +60,11 @@ export default {
       this.fetchArticleSummaryData()
     },
     fetchArticleSummaryData () {
-      axios.post(`${mainUrl.topic.getArticleList}${this.$route.params.uuid}`, {
-        page: {
-          ...{
-            ...this.articleListPage,
-            orders: [{
-              column: 'create_time',
-            }],
-          },
-        },
-      })
+      axios.get(`${mainUrl.topic.getArticleList}${this.$route.params.uuid}`)
         .then((response) => {
           const { data } = response
-          const { records } = data
-          this.updateArticleListCards(records)
+          this.topicName = data.topicName
+          this.updateArticleListCards(data.articleSummaryDtoList)
           this.updateArticleListPage({
             size: data.size,
             current: data.current,

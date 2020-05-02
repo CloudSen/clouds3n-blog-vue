@@ -14,6 +14,7 @@ const state = {
     orders: [
       {
         column: 'update_time',
+        asc: false,
       },
     ],
   },
@@ -52,6 +53,7 @@ const mutations = {
       orders: [
         {
           column: 'update_time',
+          asc: false,
         },
       ],
     }
