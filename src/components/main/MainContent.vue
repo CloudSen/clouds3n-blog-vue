@@ -1,5 +1,8 @@
 <template>
-  <v-content px-5>
+  <v-content
+    class="grey lighten-4"
+    px-5
+  >
     <router-view></router-view>
   </v-content>
 </template>

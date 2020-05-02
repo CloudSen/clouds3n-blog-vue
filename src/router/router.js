@@ -54,6 +54,12 @@ const routes = [
         component: () => import('@/views/About'),
       },
       {
+        path: 'topic',
+        name: 'topic',
+        title: '专题',
+        component: () => import('@/views/Topic'),
+      },
+      {
         path: 'time-line',
         name: 'time-line',
         title: '时间轴',

@@ -1,0 +1,92 @@
+export default [
+  {
+    topicUuid: '1',
+    parentUuid: '-1',
+    topicName: 'Java基础',
+    showOrder: 1,
+    topicImg: '',
+    childList: [
+      {
+        topicUuid: '1-1',
+        parentUuid: '1',
+        topicName: 'Java8新特性',
+        showOrder: 1,
+        topicImg: '',
+      },
+      {
+        topicUuid: '1-2',
+        parentUuid: '1',
+        topicName: '并发问题',
+        showOrder: 2,
+        topicImg: '',
+      },
+      {
+        topicUuid: '1-3',
+        parentUuid: '1',
+        topicName: 'Java9新特性',
+        showOrder: 3,
+        topicImg: '',
+      },
+    ],
+  },
+  {
+    topicUuid: '2',
+    parentUuid: '-1',
+    topicName: 'Spring全家桶',
+    showOrder: 2,
+    topicImg: '',
+    childList: [
+      {
+        topicUuid: '2-1',
+        parentUuid: '2',
+        topicName: 'Spring Security',
+        showOrder: 1,
+        topicImg: '',
+      },
+      {
+        topicUuid: '2-2',
+        parentUuid: '2',
+        topicName: 'Spring Data JPA',
+        showOrder: 2,
+        topicImg: '',
+      },
+      {
+        topicUuid: '2-3',
+        parentUuid: '2',
+        topicName: 'Spring Boot',
+        showOrder: 3,
+        topicImg: '',
+      },
+    ],
+  },
+  {
+    topicUuid: '3',
+    parentUuid: '-1',
+    topicName: 'Netty',
+    showOrder: 3,
+    topicImg: '',
+    childList: [
+      {
+        topicUuid: '3-1',
+        parentUuid: '3',
+        topicName: 'Netty Tutorial',
+        showOrder: 1,
+        topicImg: '',
+      },
+      {
+        topicUuid: '3-2',
+        parentUuid: '3',
+        topicName: 'Netty封装自定协议',
+        showOrder: 2,
+        topicImg: '',
+      },
+      {
+        topicUuid: '3-3',
+        parentUuid: '3',
+        topicName: 'Netty 原理',
+        showOrder: 3,
+        topicImg: '',
+      },
+    ],
+  },
+]

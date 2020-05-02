@@ -7,7 +7,7 @@
       height="250px"
       lazy-src="../../../assets/lazy_loading.png"
     >
-      <v-card-title>{{imgInfo.title}}</v-card-title>
+      <v-card-title :class="imgInfo.titleCss">{{imgInfo.title}}</v-card-title>
       <template v-slot:placeholder>
         <v-row
           align="center"
