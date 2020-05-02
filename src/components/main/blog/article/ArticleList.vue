@@ -6,12 +6,12 @@
     <v-row dense>
       <v-col
         :key="card.id"
+        :lg="colCss.lg"
+        :md="colCss.md"
+        :sm="colCss.sm"
+        :xl="colCss.xl"
         cols="12"
-        lg="4"
-        md="6"
-        sm="12"
         v-for="card in this.articleListCards"
-        xl="4"
       >
         <ArticleCards :card="card"></ArticleCards>
       </v-col>
@@ -33,6 +33,12 @@ import ArticleCards from '@/components/main/blog/article/ArticleCards'
 
 export default {
   name: 'article-list',
+  props: {
+    colCss: {
+      type: Object,
+      required: true,
+    },
+  },
   components: { ArticleCards },
   computed: {
     ...mapState('blog/', ['articleListCards']),

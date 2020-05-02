@@ -1,7 +1,7 @@
 <template>
   <fragment>
     <template v-if="!loadingArticleListData.active">
-      <ArticleList></ArticleList>
+      <ArticleList :colCss="artilceColCss"></ArticleList>
       <ArticlePaginationBar></ArticlePaginationBar>
     </template>
     <template v-else>
@@ -30,6 +30,12 @@ export default {
     CenterLinearLoading,
   },
   data: () => ({
+    artilceColCss: {
+      lg: '4',
+      md: '6',
+      sm: '12',
+      xl: '4',
+    },
   }),
   computed: {
     ...mapState('blog/', [
