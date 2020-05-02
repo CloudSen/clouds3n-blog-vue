@@ -60,12 +60,17 @@ export default {
             pages: data.pages,
           })
           this.updateArticleListDataLoading({ active: false })
-        }).catch((error) => console.log(error))
+        }).catch((error) => {
+          console.log(error)
+        })
     },
   },
   mounted () {
     this.init()
     goToTop(this.$vuetify)
+  },
+  destroyed () {
+    this.resetArticleListPage()
   },
 }
 </script>
