@@ -5,7 +5,7 @@
   >
     <v-row dense>
       <v-col
-        :key="card.id"
+        :key="card.uuid"
         :lg="colCss.lg"
         :md="colCss.md"
         :sm="colCss.sm"
