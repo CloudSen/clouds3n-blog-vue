@@ -5,31 +5,14 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 import TopicList from '@/components/main/topic/TopicList'
-import mainUrl from '@/api/mainUrl'
-import axios from '@/utils/axiosConfig'
 
 export default {
   name: 'topic',
   components: { TopicList },
-  data: () => ({
-    topicList: [],
-  }),
-  methods: {
-    init () {
-      this.fetchTopicData()
-    },
-    fetchTopicData () {
-      axios.get(mainUrl.topic.getTopicList).then((response) => {
-        const { data } = response
-        this.topicList = data
-      }).catch((error) => {
-        console.log(error)
-      })
-    },
-  },
-  mounted () {
-    this.init()
+  computed: {
+    ...mapState('topic', ['topicList']),
   },
 }
 </script>

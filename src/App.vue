@@ -46,12 +46,16 @@ export default {
     ...mapMutations('welcome/', [
       'saveTerminalConfig',
     ]),
+    ...mapMutations('topic/', [
+      'saveTopicList',
+    ]),
     init () {
       this.fetchDrawerMenu()
       this.fetchHeaderMenus()
       this.fetchAllTags()
       this.fetchAboutMe()
       this.fetchTerminalConfig()
+      this.fetchTopicData()
     },
     fetchDrawerMenu () {
       axios.get(asideUrl.menu.getAll)
@@ -101,12 +105,19 @@ export default {
       axios.get(welcomeUrl.terminal.getTerminalConfig)
         .then((response) => {
           const { data } = response
-          console.warn(JSON.stringify(data))
           this.saveTerminalConfig(data)
-          this.loadingData.active = false
         }).catch((error) => {
           console.error(error)
         })
+    },
+    fetchTopicData () {
+      axios.get(mainUrl.topic.getTopicList).then((response) => {
+        const { data } = response
+        this.saveTopicList(data)
+        this.loadingData.active = false
+      }).catch((error) => {
+        console.log(error)
+      })
     },
   },
   created () {
