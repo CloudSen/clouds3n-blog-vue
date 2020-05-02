@@ -53,7 +53,6 @@ export default {
       this.updateArticleListDataLoading({ active: true })
       this.updateArticleListPage({ current })
       this.fetchArticleSummaryData()
-      this.updateArticleListDataLoading({ active: false })
     },
     fetchArticleSummaryData () {
       axios.post(mainUrl.article.getSummaryList, { page: this.articleListPage })
@@ -67,6 +66,7 @@ export default {
             total: data.total,
             pages: data.pages,
           })
+          this.updateArticleListDataLoading({ active: false })
         }).catch((error) => console.log(error))
     },
   },
