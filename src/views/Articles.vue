@@ -33,7 +33,7 @@ export default {
     artilceColCss: {
       lg: '4',
       md: '6',
-      sm: '12',
+      sm: '6',
       xl: '4',
     },
   }),
