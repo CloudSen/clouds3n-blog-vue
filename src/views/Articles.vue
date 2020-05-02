@@ -1,6 +1,7 @@
 <template>
   <fragment>
-    <template v-if="!loadingArticleListData.active">
+    <template v-if="!this.loadingArticleListData.active">
+      <ArticlePaginationBar v-if="this.$vuetify.breakpoint.xsOnly"></ArticlePaginationBar>
       <ArticleList :colCss="artilceColCss"></ArticleList>
       <ArticlePaginationBar></ArticlePaginationBar>
     </template>
