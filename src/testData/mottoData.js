@@ -112,7 +112,7 @@ export default [
     type: 0,
     isMobile: false,
     style: {
-      backgroundImage: 'url("https://s2.ax1x.com/2019/07/28/elEEMd.jpg")',
+      backgroundImage: 'url("https://s1.ax1x.com/2020/05/02/JvIMTK.jpg")',
       height: '50vh',
       backgroundAttachment: 'fixed',
       backgroundPosition: 'center',
