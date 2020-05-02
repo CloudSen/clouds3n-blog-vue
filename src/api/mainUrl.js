@@ -12,6 +12,7 @@ export default {
   },
   topic: {
     getTopicList: '/main/topic',
+    getArticleList: '/main/topic/',
   },
   timeLine: {
     getAll: '/main/time-line',

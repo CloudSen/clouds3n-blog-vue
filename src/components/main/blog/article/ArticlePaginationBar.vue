@@ -3,7 +3,7 @@
     <v-container
       fluid
       grid-list-xs
-      v-if="this.articleListPage.pages > 1"
+      v-if="this.articleListPage && this.articleListPage.pages > 1"
     >
       <v-row
         align="center"
@@ -15,7 +15,7 @@
             @input="onPageChange"
             circle
             total-visible="5"
-            v-model="this.articleListPage.current"
+            v-model="current"
           ></v-pagination>
         </v-col>
       </v-row>
@@ -34,6 +34,14 @@ export default {
     ...mapState('blog/', [
       'articleListPage',
     ]),
+    current: {
+      get () {
+        return this.$store.state.blog.articleListPage.current
+      },
+      set (value) {
+        this.$store.commit('blog/updateArticleListPage', { current: value })
+      },
+    },
   },
   methods: {
     ...mapMutations('blog/', [

@@ -20,6 +20,8 @@
           <v-hover>
             <v-card
               :class="`elevation-${hover ? 24 : 2}`"
+              :to="`/home/topic-detail/${child.uuid}`"
+              exact
               raised
               ripple
               slot-scope="{ hover }"

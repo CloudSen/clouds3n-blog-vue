@@ -60,6 +60,12 @@ const routes = [
         component: () => import('@/views/Topic'),
       },
       {
+        path: 'topic-detail/:uuid',
+        name: 'topic-detail',
+        title: '专题详情',
+        component: () => import('@/views/TopicDetail'),
+      },
+      {
         path: 'time-line',
         name: 'time-line',
         title: '时间轴',
