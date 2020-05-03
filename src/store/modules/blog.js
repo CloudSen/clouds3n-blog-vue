@@ -43,6 +43,10 @@ const mutations = {
     const STATE = $state
     STATE.articleListCards = payload
   },
+  clearArticleListCards ($state) {
+    const STATE = $state
+    STATE.articleListCards = []
+  },
   resetArticleListPage ($state) {
     const STATE = $state
     STATE.articleListPage = {

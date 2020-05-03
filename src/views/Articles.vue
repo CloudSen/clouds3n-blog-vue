@@ -1,13 +1,8 @@
 <template>
   <fragment>
-    <template v-if="!this.loadingArticleListData.active">
-      <ArticlePaginationBar v-if="this.$vuetify.breakpoint.xsOnly"></ArticlePaginationBar>
-      <ArticleList :colCss="artilceColCss"></ArticleList>
-      <ArticlePaginationBar></ArticlePaginationBar>
-    </template>
-    <template v-else>
-      <CenterLinearLoading :loadingData="this.loadingArticleListData"></CenterLinearLoading>
-    </template>
+    <ArticlePaginationBar v-if="this.$vuetify.breakpoint.xsOnly"></ArticlePaginationBar>
+    <ArticleList :colCss="artilceColCss"></ArticleList>
+    <ArticlePaginationBar></ArticlePaginationBar>
     <RightSideScrollButton></RightSideScrollButton>
   </fragment>
 </template>
@@ -17,7 +12,6 @@ import { mapState, mapMutations } from 'vuex'
 import ArticleList from '@/components/main/blog/article/ArticleList'
 import ArticlePaginationBar from '@/components/main/blog/article/ArticlePaginationBar'
 import RightSideScrollButton from '@/components/common/btn/floatingButton/RightSideScrollButton'
-import CenterLinearLoading from '@/components/common/loading/CenterLinearLoading'
 import { goToTop } from '@/utils/windowSizeUtil'
 import mainUrl from '@/api/mainUrl'
 import axios from '@/utils/axiosConfig'
@@ -28,7 +22,6 @@ export default {
     ArticleList,
     ArticlePaginationBar,
     RightSideScrollButton,
-    CenterLinearLoading,
   },
   data: () => ({
     artilceColCss: {
@@ -41,7 +34,6 @@ export default {
   computed: {
     ...mapState('blog/', [
       'articleListPage',
-      'loadingArticleListData',
     ]),
   },
   methods: {
@@ -49,9 +41,11 @@ export default {
       'updateArticleListPage',
       'updateArticleListCards',
       'resetArticleListPage',
-      'updateArticleListDataLoading',
+      'clearArticleListCards',
     ]),
+    ...mapMutations('header/', ['updateProgressData']),
     init () {
+      this.updateProgressData({ active: true })
       this.fetchArticleSummaryData()
     },
     fetchArticleSummaryData () {
@@ -66,18 +60,19 @@ export default {
             total: data.total,
             pages: data.pages,
           })
-          this.updateArticleListDataLoading({ active: false })
+          this.updateProgressData({ active: false })
         }).catch((error) => {
           console.log(error)
         })
     },
   },
-  mounted () {
+  created () {
     this.init()
     goToTop(this.$vuetify)
   },
   destroyed () {
     this.resetArticleListPage()
+    this.clearArticleListCards()
   },
 }
 </script>

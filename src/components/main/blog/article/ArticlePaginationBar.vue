@@ -47,10 +47,12 @@ export default {
     ...mapMutations('blog/', [
       'updateArticleListCards',
       'updateArticleListPage',
-      'updateArticleListDataLoading',
+      'clearArticleListCards',
     ]),
+    ...mapMutations('header/', ['updateProgressData']),
     onPageChange (current) {
-      this.updateArticleListDataLoading({ active: true })
+      this.clearArticleListCards()
+      this.updateProgressData({ active: true })
       this.updateArticleListPage({ current })
       this.fetchArticleSummaryData()
     },
@@ -66,7 +68,7 @@ export default {
             total: data.total,
             pages: data.pages,
           })
-          this.updateArticleListDataLoading({ active: false })
+          this.updateProgressData({ active: false })
         }).catch((error) => console.log(error))
     },
   },

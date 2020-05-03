@@ -19,8 +19,8 @@
         cols="12"
         v-if="!this.articleListCards || this.articleListCards.length === 0"
       >
-        <v-card color="red darken-2">
-          <v-card-text>网络错误</v-card-text>
+        <v-card :color=" this.progressData ? 'white' : 'red darken-2'">
+          <v-card-text>{{ this.progressData ? '正在加载文章...' : '网络错误' }}</v-card-text>
         </v-card>
       </v-col>
     </v-row>
@@ -42,6 +42,7 @@ export default {
   components: { ArticleCards },
   computed: {
     ...mapState('blog/', ['articleListCards']),
+    ...mapState('header/', ['progressData']),
   },
 }
 </script>

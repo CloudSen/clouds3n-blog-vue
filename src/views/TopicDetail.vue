@@ -5,13 +5,8 @@
       <v-toolbar-title>{{this.topicName}}</v-toolbar-title>
       <v-spacer></v-spacer>
     </v-toolbar>
-    <template v-if="!loadingArticleListData.active">
-      <ArticleList :colCss="artilceColCss"></ArticleList>
-      <ArticlePaginationBar></ArticlePaginationBar>
-    </template>
-    <template v-else>
-      <CenterLinearLoading :loadingData="this.loadingArticleListData"></CenterLinearLoading>
-    </template>
+    <ArticleList :colCss="artilceColCss"></ArticleList>
+    <ArticlePaginationBar></ArticlePaginationBar>
     <RightSideScrollButton></RightSideScrollButton>
   </fragment>
 </template>
@@ -21,7 +16,6 @@ import { mapState, mapMutations } from 'vuex'
 import ArticleList from '@/components/main/blog/article/ArticleList'
 import ArticlePaginationBar from '@/components/main/blog/article/ArticlePaginationBar'
 import RightSideScrollButton from '@/components/common/btn/floatingButton/RightSideScrollButton'
-import CenterLinearLoading from '@/components/common/loading/CenterLinearLoading'
 import { goToTop } from '@/utils/windowSizeUtil'
 import mainUrl from '@/api/mainUrl'
 import axios from '@/utils/axiosConfig'
@@ -32,7 +26,6 @@ export default {
     ArticleList,
     ArticlePaginationBar,
     RightSideScrollButton,
-    CenterLinearLoading,
   },
   data: () => ({
     artilceColCss: {
@@ -51,12 +44,12 @@ export default {
   },
   methods: {
     ...mapMutations('blog/', [
-      'updateArticleListPage',
       'updateArticleListCards',
-      'resetArticleListPage',
-      'updateArticleListDataLoading',
+      'clearArticleListCards',
     ]),
+    ...mapMutations('header/', ['updateProgressData']),
     init () {
+      this.updateProgressData({ active: true })
       this.fetchArticleSummaryData()
     },
     fetchArticleSummaryData () {
@@ -65,16 +58,9 @@ export default {
           const { data } = response
           this.topicName = data.topicName
           this.updateArticleListCards(data.articleSummaryDtoList)
-          this.updateArticleListPage({
-            size: data.size,
-            current: data.current,
-            total: data.total,
-            pages: data.pages,
-          })
-          this.updateArticleListDataLoading({ active: false })
+          this.updateProgressData({ active: false })
         }).catch((error) => {
           console.log(error)
-          this.updateArticleListCards(null)
         })
     },
   },
@@ -83,7 +69,7 @@ export default {
     goToTop(this.$vuetify)
   },
   destroyed () {
-    this.resetArticleListPage()
+    this.clearArticleListCards()
   },
 }
 </script>

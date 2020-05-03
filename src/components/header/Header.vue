@@ -3,6 +3,7 @@
     app
     color="#6A76AB"
     dark
+    extension-height="0"
     fade-img-on-scroll
     prominent
     scroll-threshold="500"
@@ -23,18 +24,22 @@
     <v-spacer></v-spacer>
 
     <HeaderItems :items="this.headerMenu"></HeaderItems>
+
+    <AppBarLoading slot="extension"></AppBarLoading>
   </v-app-bar>
 </template>
 
 <script>
 import { mapMutations, mapState } from 'vuex'
 import HeaderItems from '@/components/header/HeaderItems'
+import AppBarLoading from '@/components/common/loading/AppBarLoading'
 import TRIGGER_DRAWER from './constants/mutationType'
 
 export default {
   name: 'top-header',
   components: {
     HeaderItems,
+    AppBarLoading,
   },
   data: () => ({
     items: [],
@@ -56,5 +61,11 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
   font-family: Hack, Consolas, Monaco, Menlo !important;
+}
+</style>
+
+<style>
+.v-application--wrap .v-toolbar__extension {
+  padding: 0px !important;
 }
 </style>
