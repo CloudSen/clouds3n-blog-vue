@@ -302,12 +302,12 @@ export default {
   white-space: nowrap;
 }
 
-/* .hack-typing .mobile-click {
-  font: 14px/1.5 Hack, Consolas, Monaco, Menlo !important; */
-/* 刚开始不显示，通过动画显示 */
-/* visibility: hidden;
+.hack-typing .mobile-click {
+  font: 14px/1.5 Hack, Consolas, Monaco, Menlo !important;
+  /* 刚开始不显示，通过动画显示 */
+  visibility: hidden;
   white-space: nowrap;
-} */
+}
 
 .hack-typing span {
   font: 14px/1.5 Hack, Consolas, Monaco, Menlo !important;
@@ -387,9 +387,9 @@ export default {
   animation: typing 0.5s ease 11.5s 1 normal forwards;
 }
 
-/* .hack-typing .mobile-click {
+.hack-typing .mobile-click {
   animation: mobile-btn 0.5s ease 11.5s 1 normal forwards;
-} */
+}
 
 /* 光标 */
 .hack-typing .user-input {
