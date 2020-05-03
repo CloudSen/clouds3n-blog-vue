@@ -1,9 +1,6 @@
 <template>
   <fragment>
-    <v-card
-      ripple
-      tile
-    >
+    <v-card tile>
       <div
         class="markdown-body content"
         v-html="renderContent"
